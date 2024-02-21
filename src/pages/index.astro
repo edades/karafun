@@ -1,16 +1,207 @@
 ---
-
+import Header from '../components/Header.astro'
+import { Image } from "astro:assets";
+import headerbg from "../../public/images/header-bg.png"
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<section id="section1">
+			<h1>Cantar te alegra<br />el día!</h1>
+			<Image src={headerbg} alt="header background" />
+			<Header />
+		</section>
+		<section id="section2">
+			<div class="section2-title">
+				<h2>¡Con KaraFun es fácil!</h2>
+				<p>Miles de canciones de karaoke.</p>
+			</div>
+			<div class="section2-content">
+				<div class="section2-content-text">
+					Los invitamos a ser parte de esta sana diversión musical y canto en familia,
+					además mencionar que este sistema karafun es el mismo que hace más de
+					10 años vendo a todos los pub, restaurantes, bares, dj, y empresas de
+					eventos, del país y más de 12.300 clientes en todo chile.
+				</div>
+				<img src="/images/section2.jpg" width="350" alt="section2"/>
+			</div>
+		</section>
+		<section id="section3">
+			<div class="section3-items">
+
+				<div class="section3-item">
+					<img src="/icons/check.svg" alt="" width="60" />
+					<div>
+						<h3>Contenido de calidad</h3>
+						<p>Más de 118.500 videos musicales limpios (quiere decir que <span class="boldtext">NO son de YouTube</span>, no tienen audios adicionales) de alta calidad.</p>
+					</div>
+				</div>
+
+				<div class="section3-item">
+					<img src="/icons/check.svg" alt="" width="60" />
+					<div>
+						<h3>Todos los estilos</h3>
+						<p>Ordenados en carpetas <span class="boldtext">por estilo, por ritmo, por décadas</span>, 60, 70, 80, 90, 2000, 2010, 2023. Salsa, románticas en varios idiomas, merengue, bachata, rock, cumbia, cueca, folklore, música disco, electrónica.</p>
+					</div>
+				</div>
+
+				<div class="section3-item">
+					<img src="/icons/check.svg" alt="" width="60" />
+					<div>
+						<h3>Contenido actualizado</h3>
+						<p>Contenido totalmente actualizado a la fecha, <span class="boldtext">los temas se actualizan cada dos meses</span>.</p>
+					</div>
+				</div>
+
+				<div class="section3-item">
+					<img src="/icons/check.svg" alt="" width="60" />
+					<div>
+						<h3>Donde quieras</h3>
+						<p>Puedes ver y escuchar con <span class="boldtext">cualquier sistema de reproducción de videos</span>, en la tv, en el celular, en la Tablet, en el pc, en el auto, directo del disco duro al puerto USB, y también con programas de dj.</p>
+					</div>
+				</div>
+			</div> <!-- Section 3 ITEMS -->
+			<p class="section3-text">
+				Además tengo <span class="boldtext">más de 500 Gb de música</span> (183.000 temas mp3) debidamente ordenados carpetas, por temporada, por ritmo por estilo y totalmente <span class="boldtext">actualizado cada dos meses</span> temas nuevos.
+			</p>
+		</section>
+		<section id="section4">
+			<img src="/images/section4.jpg" alt="">
+			<div class="section4-content">
+				<div>
+					<h3>Karafun en Chile</h3>
+					<b>Somos los únicos autorizados en CHILE</b>
+					<p>Nacimos de la necesidad y falta de un sistema profesional de Karaoke en
+					Chile, con sonido real, que además puedes regular los tonos, de tu voz y de
+					la canción que estas cantando en karafun, este sistema lo traemos desde
+					España directo del fabricante y somos los únicos autorizados en chile para
+					vender y asesorar en tu negocio y eventos, cabe decir que este es el
+					karaoke más exitoso en los países de américa latina y Norteamérica.</p>
+				</div>
+				<a href="#">Descargar Listado Temas 2024</a>
+			</div>
+		</section>
 	</body>
 </html>
+
+<style>
+	* {
+		font-family: "Raleway", sans-serif;
+  		font-optical-sizing: auto;
+	}
+	.boldtext {
+		font-weight: 700;
+	}
+	body {
+		margin: 0;
+    	padding: 0;
+	}
+	#section1 {
+		width: 100%;
+    	height: 450px;
+		background-image: linear-gradient(0,#d5167a 17.83%,#230755 71.77%);
+		display: flex;
+    	justify-content: center;
+		overflow: hidden;
+	}
+	#section1 h1 {
+		color: white;
+		top: 30%;
+		position: relative;
+		left: 6%;
+		font-size: 40px;
+	}
+
+	#section2 {
+		padding: 0 20vw;
+	}
+	.section2-title {
+		text-align: center;
+	}
+	.section2-title h2 {
+		font-size: 40px;
+		font-weight: 300;
+		margin-bottom: 0;
+	}
+	.section2-title p {
+		font-size: 18px;
+		font-weight: 700;
+    	color: #e673af;
+    	letter-spacing: -.0315em;
+		margin-top: 0;
+	}
+	.section2-content {
+		display: flex;
+	}
+	.section2-content-text {
+		display: flex;
+		align-items: center;
+		font-size: 20px;
+		margin-right: 20px;
+	}
+	#section3 {
+		background: #f5f4f3;
+		padding: 40px 4vw;
+		margin: 20px 0;
+	}
+	.section3-items {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 50px;
+		width: 90%;
+		margin: 0 auto;
+	}
+	.section3-item {
+		display: flex;
+		background: white;
+		padding: 5px;
+		gap: 10px;
+		border-radius: 15px;
+	}
+	.section3-text {
+		width: 70vw;
+		text-align: center;
+		margin: 30px auto 0 auto;
+		font-size: 20px;
+	}
+	#section4 {
+		padding: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 50px;
+		padding: 0 20vw;
+	}
+	#section4 img {
+		width: 350px;
+	}
+	#section4 a {
+		background: #7314bd;
+		color: white;
+		padding: 5px 30px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		border-radius: 40px;
+		text-decoration: none;
+		font-weight: 600;
+		justify-content: center;
+		max-width: 300px;
+	}
+	#section4 a:hover {
+		background: #bd7fed;
+	}
+	.section4-content b {
+		color: #e673af;
+	}
+</style>
