@@ -1,13 +1,11 @@
 ---
 import Header from '../components/Header.astro'
-import { Image } from "astro:assets";
-import headerbg from "../../public/images/header-bg.png"
 ---
 
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
@@ -18,7 +16,7 @@ import headerbg from "../../public/images/header-bg.png"
 	<body>
 		<section id="section1">
 			<h1>Cantar te alegra<br />el día!</h1>
-			<Image src={headerbg} alt="header background" />
+			<img src="images/header-bg.png" alt="header background" />
 			<Header />
 		</section>
 		<section id="section2">
@@ -33,14 +31,14 @@ import headerbg from "../../public/images/header-bg.png"
 					10 años vendo a todos los pub, restaurantes, bares, dj, y empresas de
 					eventos, del país y más de 12.300 clientes en todo chile.
 				</div>
-				<img src="/images/section2.jpg" width="350" alt="section2"/>
+				<img src="images/section2.jpg" width="350" alt="section2"/>
 			</div>
 		</section>
 		<section id="section3">
 			<div class="section3-items">
 
 				<div class="section3-item">
-					<img src="/icons/check.svg" alt="" width="60" />
+					<img src="icons/check.svg" alt="" width="60" />
 					<div>
 						<h3>Contenido de calidad</h3>
 						<p>Más de 118.500 videos musicales limpios (quiere decir que <span class="boldtext">NO son de YouTube</span>, no tienen audios adicionales) de alta calidad.</p>
@@ -48,7 +46,7 @@ import headerbg from "../../public/images/header-bg.png"
 				</div>
 
 				<div class="section3-item">
-					<img src="/icons/check.svg" alt="" width="60" />
+					<img src="icons/check.svg" alt="" width="60" />
 					<div>
 						<h3>Todos los estilos</h3>
 						<p>Ordenados en carpetas <span class="boldtext">por estilo, por ritmo, por décadas</span>, 60, 70, 80, 90, 2000, 2010, 2023. Salsa, románticas en varios idiomas, merengue, bachata, rock, cumbia, cueca, folklore, música disco, electrónica.</p>
@@ -56,7 +54,7 @@ import headerbg from "../../public/images/header-bg.png"
 				</div>
 
 				<div class="section3-item">
-					<img src="/icons/check.svg" alt="" width="60" />
+					<img src="icons/check.svg" alt="" width="60" />
 					<div>
 						<h3>Contenido actualizado</h3>
 						<p>Contenido totalmente actualizado a la fecha, <span class="boldtext">los temas se actualizan cada dos meses</span>.</p>
@@ -64,7 +62,7 @@ import headerbg from "../../public/images/header-bg.png"
 				</div>
 
 				<div class="section3-item">
-					<img src="/icons/check.svg" alt="" width="60" />
+					<img src="icons/check.svg" alt="" width="60" />
 					<div>
 						<h3>Donde quieras</h3>
 						<p>Puedes ver y escuchar con <span class="boldtext">cualquier sistema de reproducción de videos</span>, en la tv, en el celular, en la Tablet, en el pc, en el auto, directo del disco duro al puerto USB, y también con programas de dj.</p>
@@ -76,7 +74,7 @@ import headerbg from "../../public/images/header-bg.png"
 			</p>
 		</section>
 		<section id="section4">
-			<img src="/images/section4.jpg" alt="">
+			<img src="images/section4.jpg" alt="">
 			<div class="section4-content">
 				<div>
 					<h3>Karafun en Chile</h3>
