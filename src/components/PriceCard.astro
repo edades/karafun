@@ -1,0 +1,46 @@
+---
+const { title, description, items, price } = Astro.props;
+---
+<div class="section5-item">
+    <h3>{title}</h3>
+    <p class="section5-item-description">{description}</p>
+    <div>
+        <ul>
+            {items.map(item  => <li><span>{item}</span></li>)}
+        </ul>
+        <p class="section5-item-price">{price}</p>
+    </div>
+</div>
+
+<style>
+    .section5-item {
+        background: white;
+        border-radius: 10px;
+        padding: 5px 25px;
+    }
+    .section5-item h3 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+    .section5-item-description {
+        margin: 3px 0;
+        font-size: 16px;
+    }
+    .section5-item ul > li
+    {
+        color: #e673af;
+        margin-bottom: 6px;
+    }
+    .section5-item ul > li > span
+    {
+        color: #000;
+        font-size: 17px;
+        font-weight: 500;
+    }
+    .section5-item-price {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 600;
+    }
+</style>

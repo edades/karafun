@@ -1,25 +1,31 @@
 ---
 import Header from '../components/Header.astro'
+import PriceCard from '../components/PriceCard.astro'
 ---
 
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<link rel="icon" type="image/ico" href="favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Te invitamos a ser parte de esta sana diversión musical y canto en familia - Miles de vídeos musicales y canciones - Distribuidores autorizados en Chile">
+  		<meta name="keywords" content="Karaoke, Musica, Canciones, Diversion, Karafun">
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Karafun - Miles de canciones de Karaoke</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	</head>
 	<body>
+		<a class="whatsapp" target="_blank" href="https://wa.me/+56942586351?text=Hola!%20estoy%20interesado%20en%20un%20producto%20Karafun">
+			<img src="icons/wtsp.png" alt="whatsapp" width="50">
+		</a>
+		<img class="logo" src="images/logo.png" alt="logo" width="120" />
 		<section id="section1">
-			<h1>Cantar te alegra<br />el día!</h1>
+			<h1>¡Cantar te alegra<br />el día!</h1>
 			<img src="images/header-bg.png" alt="header background" />
-			<Header />
 		</section>
-		<section id="section2">
+		<section class="section2">
 			<div class="section2-title">
 				<h2>¡Con KaraFun es fácil!</h2>
 				<p>Miles de canciones de karaoke.</p>
@@ -86,8 +92,87 @@ import Header from '../components/Header.astro'
 					vender y asesorar en tu negocio y eventos, cabe decir que este es el
 					karaoke más exitoso en los países de américa latina y Norteamérica.</p>
 				</div>
-				<a href="#">Descargar Listado Temas 2024</a>
+				<a href="docs/listado.xls" download>Descargar Listado Temas 2024</a>
 			</div>
+		</section>
+
+		<section id="section5">
+			<div>
+				<h3>Nuestros Precios</h3>
+			</div>
+			<div class="section5-items">
+				<PriceCard
+					title="Pack 1 Tera"
+					description="Disco Duro Externo 1Tera"
+					items={['7.450 Videos Musicales Limpios', '175GB de Música Mp3', '18.700 temas de karaoke karafun', '1 Disco Duro Externo 1tr – Toshiba (Nuevo)', 'Listado de karafun en Excel y pdf']}
+					price="$ 175.900"
+				/>
+				<PriceCard
+					title="Pack 500GB"
+					description="Disco Duro Externo 500GB"
+					items={['3.810 Videos Musicales Limpios', '18.700 temas de karaoke karafun', '75GB de música dj carrete', '1 disco duro externo de 500gb', 'Listado de karafun en Excel y pdf']}
+					price="$ 97.900"
+				/>
+				<PriceCard
+					title="Pack 320GB"
+					description="Disco Duro Externo 320GB"
+					items={['1.610 Videos Musicales Limpios', '18.700 temas de karaoke karafun', '19GB de música dj carrete', '1 disco duro externo de 320gb', 'Listado de karafun en Excel y pdf']}
+					price="$ 83.900"
+				/>
+				<PriceCard
+					title="Pack 250GB"
+					description="Disco Duro Externo 250GB"
+					items={['1.010 Videos Musicales Limpios', '18.700 temas de karaoke karafun', '13GB de música dj carrete', '1 disco duro externo de 250gb', 'Listado de karafun en Excel y pdf']}
+					price="$ 78.900"
+				/>
+				<PriceCard
+					title="Pack 160GB"
+					description="Disco Duro Externo 160GB"
+					items={['1.010 Videos Musicales Limpios', '18.700 temas de karaoke karafun', '13GB de música dj carrete', '1 disco duro externo de 160gb', 'Listado de karafun en Excel y pdf']}
+					price="$ 68.900"
+				/>
+			</div>
+			<div class="section5-envios">
+				<h3>ENVIOS A TODO CHILE</h3>
+				<p>Tiempos de entrega máximo 24 horas después del pago</p>
+				<ul>
+					<li><span>Dentro de Santiago $ 5.000 chilexpress</span></li>
+					<li><span>Regiones $7.000 - chilexpress</span></li>
+					<li><span>Zonas Extremas $ 9.500 - chilexpress</span></li>
+					<li><span>1 hora dentro Santiago – $ 9.000</span></li>
+				</ul>
+			</div>
+			<div class="section5-envios-mobile">
+				<h3>ENVIOS A TODO CHILE</h3>
+				<p>Tiempos de entrega máximo 24 horas después del pago</p>
+				<ul>
+					<li><span>Dentro de Santiago $ 5.000 chilexpress</span></li>
+					<li><span>Regiones $7.000 - chilexpress</span></li>
+					<li><span>Zonas Extremas $ 9.500 - chilexpress</span></li>
+					<li><span>1 hora dentro Santiago – $ 9.000</span></li>
+				</ul>
+			</div>
+		</section>
+		<section class="section2">
+			<div class="section2-title">
+				<h2>Contáctanos</h2>
+				<p>Y disfruta de miles de canciones de karaoke.</p>
+			</div>
+			<div class="section2-content">
+				<div class="section2-content-text">
+					<div class="section2-contact">
+						<p>Tienes dudas o quieres Comprar?</p>
+						<a href="mailto:karaokes@karafun.cl">karaokes@karafun.cl</a>
+						<br><br>
+						<a href="mailto:ventas@karafun.cl">ventas@karafun.cl</a>
+						<br><br>
+						<a href="tel:+569 4258 6351">+569 4258 6351</a>
+					</div>
+				</div>
+				<img src="images/contacto.jpg" width="350" alt="contacto"/>
+			</div>
+			<br>
+			<br>
 		</section>
 	</body>
 </html>
@@ -96,6 +181,11 @@ import Header from '../components/Header.astro'
 	* {
 		font-family: "Raleway", sans-serif;
   		font-optical-sizing: auto;
+	}
+	.logo {
+		position: absolute;
+		top: 20px;
+		left: 30px;
 	}
 	.boldtext {
 		font-weight: 700;
@@ -120,7 +210,7 @@ import Header from '../components/Header.astro'
 		font-size: 40px;
 	}
 
-	#section2 {
+	.section2 {
 		padding: 0 20vw;
 	}
 	.section2-title {
@@ -140,12 +230,23 @@ import Header from '../components/Header.astro'
 	}
 	.section2-content {
 		display: flex;
+		justify-content: center;
 	}
 	.section2-content-text {
 		display: flex;
 		align-items: center;
 		font-size: 20px;
 		margin-right: 20px;
+	}
+	.section2-contact a {
+		text-decoration: none;
+		color: #7314bd;
+		font-size: 20px;
+		font-weight: 600;
+	}
+	.section2-contact a:hover {
+		text-decoration: underline;
+		color: gray;		
 	}
 	#section3 {
 		background: #f5f4f3;
@@ -201,5 +302,124 @@ import Header from '../components/Header.astro'
 	}
 	.section4-content b {
 		color: #e673af;
+	}
+	#section5 {
+		background: #f5f4f3;
+		padding: 40px 6vw;
+		margin: 40px 0;
+	}
+	.section5-items {
+		display: grid;
+    	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		gap: 20px;
+	}
+	.section5-envios {
+		text-align: center;
+		border: 3px solid gray;
+		border-radius: 16px;
+		margin: 10px 0;
+		padding: 0 0 20px 0;
+	}
+	.section5-envios h3 {
+		font-size: 26px;
+    	font-weight: 800;
+		margin-bottom: 0;
+	}
+	.section5-envios p {
+		font-size: 20px;
+		font-weight: 600;
+		margin: 5px 0;
+		color: #e673af;
+	}
+	.section5-envios ul {
+		display: flex;
+		flex-direction: column;
+		width: 300px;
+		margin: 0 auto;
+		font-size: 16px;
+		margin-top: 20px;
+    	line-height: 24px;
+	}
+	.section5-envios ul > li
+    {
+        color: #e673af;
+    }
+    .section5-envios ul > li > span
+    {
+        color: #000;
+	}
+	.whatsapp {
+		position: fixed;
+		right: 20px;
+		bottom: 30px;
+	}
+
+
+	/* Medium devices (landscape tablets, 768px and up) */
+	@media only screen and (max-width: 768px) {
+		#section1 img {
+			width: 600px;
+			height: 260px;
+			position: relative;
+			top: 190px;
+		}
+		.section2 {
+			padding: 0 10vw;
+		}
+		#section4 img {
+			width: 250px;
+		}
+		#section1 h1 {
+			position: absolute;
+    		top: 80px;
+		}
+		.section2-content {
+			flex-direction: column;
+		}
+		.section5-items {
+			grid-template-columns: 1fr !important;
+		}
+		.section2-content-text {
+			margin-bottom: 20px;
+    		text-align: center;
+		}
+		.section5-envios {
+			display: none;
+		}
+		.section5-envios-mobile {
+			display: block !important;
+		}
+	}
+
+
+	/* Small devices (portrait tablets and large phones, 600px and up) */
+	@media only screen and (min-width: 600px) {
+		.section5-envios-mobile {
+			display: none;
+		}
+	}
+
+	/* Large devices (laptops/desktops, 992px and up) */
+	@media only screen and (max-width: 992px) {
+		.section5-envios-mobile {
+			display: none;
+		}
+		.section2-content {
+			align-items: center;
+		}
+		.section2-content img {
+			width: 200px;
+			height: 200px;
+		}
+		.section3-items {
+			grid-template-columns: 1fr;
+			grid-gap: 20px;
+		}
+		#section4 {
+			flex-direction: column;
+		}
+		.section5-items {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 </style>
