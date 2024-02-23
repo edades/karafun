@@ -9,9 +9,9 @@ import PriceCard from '../components/PriceCard.astro'
 		<link rel="icon" type="image/ico" href="favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="description" content="Te invitamos a ser parte de esta sana diversión musical y canto en familia - Miles de vídeos musicales y canciones - Distribuidores autorizados en Chile">
-  		<meta name="keywords" content="Karaoke, Musica, Canciones, Diversion, Karafun">
+  		<meta name="keywords" content="Karaoke Chile, Karaoke, Karafun, Karaoke en Chile">
 		<meta name="generator" content={Astro.generator} />
-		<title>Karafun - Miles de canciones de Karaoke</title>
+		<title>Karafun - Miles de canciones de Karaoke - Karaoke en Chile 🎤</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -22,20 +22,20 @@ import PriceCard from '../components/PriceCard.astro'
 		</a>
 		<img class="logo" src="images/logo.png" alt="logo" width="120" />
 		<section id="section1">
-			<h1>¡Cantar te alegra<br />el día!</h1>
+			<h1>¡Cantar te alegra<br />el día! 😀</h1>
 			<img src="images/header-bg.png" alt="header background" />
 		</section>
 		<section class="section2">
 			<div class="section2-title">
 				<h2>¡Con KaraFun es fácil!</h2>
-				<p>Miles de canciones de karaoke.</p>
+				<p>Miles de canciones de karaoke 🎤</p>
 			</div>
 			<div class="section2-content">
 				<div class="section2-content-text">
-					Los invitamos a ser parte de esta sana diversión musical y canto en familia,
+					<span>Los invitamos a ser parte de esta sana diversión musical y canto en familia,
 					además mencionar que este sistema karafun es el mismo que hace más de
 					10 años vendo a todos los pub, restaurantes, bares, dj, y empresas de
-					eventos, del país y más de 12.300 clientes en todo chile.
+					eventos, del país y <span class="boldtext">más de 12.300 clientes en todo Chile.</span></span>
 				</div>
 				<img src="images/section2.jpg" width="350" alt="section2"/>
 			</div>
@@ -84,7 +84,7 @@ import PriceCard from '../components/PriceCard.astro'
 			<div class="section4-content">
 				<div>
 					<h3>Karafun en Chile</h3>
-					<b>Somos los únicos autorizados en CHILE</b>
+					<b>Somos los únicos autorizados en CHILE ✅</b>
 					<p>Nacimos de la necesidad y falta de un sistema profesional de Karaoke en
 					Chile, con sonido real, que además puedes regular los tonos, de tu voz y de
 					la canción que estas cantando en karafun, este sistema lo traemos desde
@@ -92,48 +92,57 @@ import PriceCard from '../components/PriceCard.astro'
 					vender y asesorar en tu negocio y eventos, cabe decir que este es el
 					karaoke más exitoso en los países de américa latina y Norteamérica.</p>
 				</div>
-				<a href="docs/listado.xls" download>Descargar Listado Temas 2024</a>
+				<a href="docs/listado.xls" download>Descargar Listado Temas 2024 EXCEL</a>
+				<br>
+				<a href="docs/listado.pdf" download>Descargar Listado Temas 2024 PDF</a>
 			</div>
+			<div>
+		</section>
+
+		<section class="tutoriales">
+			<h2>Tutoriales para utilizar fácilmente Karafun</h2>
+			<iframe src="https://www.veed.io/embed/8245d7a3-12cb-445a-aabd-b6a07ed38a46" width="360" height="204" frameborder="0" title="Tutorial Karafun" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<iframe src="https://www.veed.io/embed/35bae60b-d069-4f6b-8edd-7d0035ce09fc" width="360" height="204" frameborder="0" title="Tutorial - Cómo conectar el PC a la TV" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		</section>
 
 		<section id="section5">
 			<div>
-				<h3>Nuestros Precios</h3>
+				<h3 style="font-size: 30px; text-align:center;">Nuestros Precios</h3>
 			</div>
 			<div class="section5-items">
 				<PriceCard
 					title="Pack 1 Tera"
 					description="Disco Duro Externo 1Tera"
 					items={['7.450 Videos Musicales Limpios', '175GB de Música Mp3', '18.700 temas de karaoke karafun', '1 Disco Duro Externo 1tr – Toshiba (Nuevo)', 'Listado de karafun en Excel y pdf']}
-					price="$ 175.900"
+					price="💲 175.900"
 				/>
 				<PriceCard
 					title="Pack 500GB"
 					description="Disco Duro Externo 500GB"
 					items={['3.810 Videos Musicales Limpios', '18.700 temas de karaoke karafun', '75GB de música dj carrete', '1 disco duro externo de 500gb', 'Listado de karafun en Excel y pdf']}
-					price="$ 97.900"
+					price="💲 97.900"
 				/>
 				<PriceCard
 					title="Pack 320GB"
 					description="Disco Duro Externo 320GB"
 					items={['1.610 Videos Musicales Limpios', '18.700 temas de karaoke karafun', '19GB de música dj carrete', '1 disco duro externo de 320gb', 'Listado de karafun en Excel y pdf']}
-					price="$ 83.900"
+					price="💲 83.900"
 				/>
 				<PriceCard
 					title="Pack 250GB"
 					description="Disco Duro Externo 250GB"
 					items={['1.010 Videos Musicales Limpios', '18.700 temas de karaoke karafun', '13GB de música dj carrete', '1 disco duro externo de 250gb', 'Listado de karafun en Excel y pdf']}
-					price="$ 78.900"
+					price="💲 78.900"
 				/>
 				<PriceCard
 					title="Pack 160GB"
 					description="Disco Duro Externo 160GB"
 					items={['1.010 Videos Musicales Limpios', '18.700 temas de karaoke karafun', '13GB de música dj carrete', '1 disco duro externo de 160gb', 'Listado de karafun en Excel y pdf']}
-					price="$ 68.900"
+					price="💲 68.900"
 				/>
 			</div>
 			<div class="section5-envios">
-				<h3>ENVIOS A TODO CHILE</h3>
+				<h3>ENVIOS A TODO CHILE 📦</h3>
 				<p>Tiempos de entrega máximo 24 horas después del pago</p>
 				<ul>
 					<li><span>Dentro de Santiago $ 5.000 chilexpress</span></li>
@@ -143,7 +152,7 @@ import PriceCard from '../components/PriceCard.astro'
 				</ul>
 			</div>
 			<div class="section5-envios-mobile">
-				<h3>ENVIOS A TODO CHILE</h3>
+				<h3>ENVIOS A TODO CHILE 📦</h3>
 				<p>Tiempos de entrega máximo 24 horas después del pago</p>
 				<ul>
 					<li><span>Dentro de Santiago $ 5.000 chilexpress</span></li>
@@ -162,11 +171,9 @@ import PriceCard from '../components/PriceCard.astro'
 				<div class="section2-content-text">
 					<div class="section2-contact">
 						<p>Tienes dudas o quieres Comprar?</p>
-						<a href="mailto:karaokes@karafun.cl">karaokes@karafun.cl</a>
+						<a href="mailto:ventas@karafun.cl">📧 ventas@karafun.cl</a>
 						<br><br>
-						<a href="mailto:ventas@karafun.cl">ventas@karafun.cl</a>
-						<br><br>
-						<a href="tel:+569 4258 6351">+569 4258 6351</a>
+						<a href="tel:+569 4258 6351">📱 +569 4258 6351</a>
 					</div>
 				</div>
 				<img src="images/contacto.jpg" width="350" alt="contacto"/>
@@ -193,6 +200,7 @@ import PriceCard from '../components/PriceCard.astro'
 	body {
 		margin: 0;
     	padding: 0;
+		background-color: #fcf6ff;
 	}
 	#section1 {
 		width: 100%;
@@ -296,6 +304,7 @@ import PriceCard from '../components/PriceCard.astro'
 		font-weight: 600;
 		justify-content: center;
 		max-width: 300px;
+		text-align: center;
 	}
 	#section4 a:hover {
 		background: #bd7fed;
@@ -353,6 +362,9 @@ import PriceCard from '../components/PriceCard.astro'
 		right: 20px;
 		bottom: 30px;
 	}
+	.tutoriales {
+		text-align: center;
+	}
 
 
 	/* Medium devices (landscape tablets, 768px and up) */
@@ -399,8 +411,8 @@ import PriceCard from '../components/PriceCard.astro'
 		}
 	}
 
-	/* Large devices (laptops/desktops, 992px and up) */
-	@media only screen and (max-width: 992px) {
+	/* Large devices (laptops/desktops, 1064px and up) */
+	@media only screen and (max-width: 1064px) {
 		.section5-envios-mobile {
 			display: none;
 		}
@@ -409,7 +421,6 @@ import PriceCard from '../components/PriceCard.astro'
 		}
 		.section2-content img {
 			width: 200px;
-			height: 200px;
 		}
 		.section3-items {
 			grid-template-columns: 1fr;
@@ -420,6 +431,12 @@ import PriceCard from '../components/PriceCard.astro'
 		}
 		.section5-items {
 			grid-template-columns: 1fr 1fr;
+		}
+		.tutoriales {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 40px;
 		}
 	}
 </style>
