@@ -1,0 +1,102 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import plans from '../../data/plans.json';
+import site from '../../data/site.json';
+
+const featuredPlan = plans.find(p => p.featured) || plans[1];
+const { shipping, stats } = site;
+const fmt = (n: number) => n.toLocaleString('es-CL');
+---
+
+<InnerLayout
+  title="Karaoke en Santiago Chile | KaraFun — Distribuidor Oficial y Envío Express"
+  description={`Karaoke profesional en Santiago. Entrega express ${shipping.express.time} dentro de Santiago. Distribuidor oficial KaraFun en Chile. ${stats.videos} videos musicales HD. Sin internet. Sin mensualidades.`}
+  breadcrumb="Karaoke en Santiago"
+  h1="Karaoke profesional en Santiago, Chile"
+  subtitle={`El único proveedor autorizado KaraFun con despacho express en Santiago. Recibe tu sistema de karaoke en ${shipping.express.time} y empieza a usar desde hoy.`}
+  whatsappMsg="Hola! estoy en Santiago y me interesa karaoke profesional KaraFun"
+>
+
+  <section class="inner-section inner-section--light">
+    <div class="container">
+      <h2 class="inner-section-title">Ventajas de comprar en Santiago</h2>
+      <p class="inner-section-desc">
+        Al estar ubicados en Santiago, podemos ofrecerte condiciones de entrega que
+        ningún otro proveedor puede igualar.
+      </p>
+      <div class="benefits-grid">
+        {[
+          `Entrega express ${shipping.express.time} dentro de la Región Metropolitana`,
+          "Visita técnica personalizada disponible en Santiago",
+          "Asesoría presencial para tu negocio o evento",
+          "Demostración del sistema antes de comprar",
+          `Despacho Chilexpress a regiones en ${shipping.regions.time}`,
+          "Soporte post-venta directo en Chile"
+        ].map(text => (
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span>{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--dark">
+    <div class="container">
+      <h2 class="inner-section-title inner-section-title--light">Más de {stats.years} años sirviendo a Santiago</h2>
+      <p class="inner-section-desc inner-section-desc--light">
+        Nacimos en Santiago con la misión de traer a Chile el mejor sistema de karaoke
+        profesional del mundo. Hoy contamos con más de {stats.active_clients} clientes en todo el país,
+        la mayoría de ellos en la Región Metropolitana: pubs, restaurantes, bares, DJs
+        y empresas de eventos.
+      </p>
+      <div class="feature-list">
+        <div class="feature-list-item"><strong>{stats.active_clients}</strong> clientes activos en Chile</div>
+        <div class="feature-list-item"><strong>{stats.years}</strong> años de experiencia en el mercado</div>
+        <div class="feature-list-item">Proveedor <strong>certificado</strong> por KaraFun España</div>
+        <div class="feature-list-item">Único distribuidor <strong>oficial</strong> en Chile</div>
+        <div class="feature-list-item">Envío express <strong>{shipping.express.time}</strong> en Santiago</div>
+        <div class="feature-list-item">Soporte técnico <strong>en español</strong></div>
+      </div>
+      <div class="inner-cta-box">
+        <div>
+          <p class="inner-cta-label">Pack más solicitado en Santiago</p>
+          <p class="inner-cta-plan">{featuredPlan.title} — ${fmt(featuredPlan.price)} CLP</p>
+        </div>
+        <a href="/#precios" class="btn-primary-inner btn-primary-inner--sm">Ver todos los paquetes</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--light">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="inner-section-title">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">¿Cuánto demora la entrega en Santiago?</summary>
+          <p class="faq-a">Dentro de la Región Metropolitana hacemos entrega express en aproximadamente {shipping.express.time}. El costo de despacho express es de ${fmt(shipping.express.price)}.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Puedo ver una demostración antes de comprar?</summary>
+          <p class="faq-a">Contáctanos por WhatsApp y coordinamos una demostración. También podemos asesorarte por videollamada para que veas el sistema en acción.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Qué métodos de pago aceptan?</summary>
+          <p class="faq-a">Aceptamos transferencia bancaria, depósito y otros medios. Consulta por WhatsApp para más detalles sobre las opciones disponibles.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Dan soporte si tengo problemas técnicos?</summary>
+          <p class="faq-a">Sí. Ofrecemos soporte técnico directo en Chile vía WhatsApp. Para clientes en Santiago también podemos coordinar visita técnica presencial.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</InnerLayout>
+
+<style>
+  .btn-primary-inner--sm { font-size: 14px !important; padding: 11px 22px !important; }
+</style>

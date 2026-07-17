@@ -1,0 +1,97 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import plans from '../../data/plans.json';
+import site from '../../data/site.json';
+
+const featuredPlan = plans.find(p => p.featured) || plans[1];
+const { shipping } = site;
+const fmt = (n: number) => n.toLocaleString('es-CL');
+---
+
+<InnerLayout
+  title="Karaoke en Concepción Chile | KaraFun — Sistema Profesional"
+  description={`Sistema de karaoke profesional para pubs, restaurantes y eventos en Concepción. Envío Chilexpress en ${shipping.regions.time}. Distribuidor oficial KaraFun en Chile.`}
+  breadcrumb="Karaoke Concepción"
+  h1="Karaoke profesional en Concepción y el Biobío"
+  subtitle={`Pubs, restaurantes y empresas de eventos en Concepción, Talcahuano, Chiguayante y el Biobío. KaraFun llega a tu negocio en ${shipping.regions.time} con el catálogo más completo de Chile.`}
+  whatsappMsg="Hola! estoy en Concepción y me interesa karaoke KaraFun"
+>
+
+  <section class="inner-section inner-section--light">
+    <div class="container">
+      <h2 class="inner-section-title">KaraFun en la Región del Biobío</h2>
+      <p class="inner-section-desc">
+        Concepción tiene una escena universitaria y nocturna que demanda entretenimiento
+        de calidad. KaraFun es el sistema que usan los mejores pubs y restaurantes del
+        país para ofrecer una experiencia de karaoke profesional sin complicaciones.
+      </p>
+      <div class="benefits-grid">
+        {[
+          `Envío Chilexpress a toda la Región del Biobío en ${shipping.regions.time}`,
+          "Sin internet — ideal para locales en zonas con conectividad irregular",
+          "118.500+ videos musicales HD sin publicidad ni interrupciones",
+          "Catálogo actualizado con los últimos hits, cada dos meses",
+          "Compatible con cualquier TV, proyector o sistema de sonido",
+          "Soporte técnico en español desde Chile"
+        ].map(text => (
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span>{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--dark">
+    <div class="container">
+      <h2 class="inner-section-title inner-section-title--light">Envíos a la Región del Biobío</h2>
+      <p class="inner-section-desc inner-section-desc--light">
+        Despachamos a Concepción, Talcahuano, Hualpén, Chiguayante, San Pedro de la Paz,
+        Los Ángeles, Coronel y el resto de la región vía Chilexpress.
+      </p>
+      <div class="feature-list">
+        <div class="feature-list-item">Concepción — <strong>{shipping.regions.time}</strong></div>
+        <div class="feature-list-item">Talcahuano / Hualpén — <strong>{shipping.regions.time}</strong></div>
+        <div class="feature-list-item">San Pedro de la Paz — <strong>{shipping.regions.time}</strong></div>
+        <div class="feature-list-item">Los Ángeles — <strong>24–48 horas hábiles</strong></div>
+        <div class="feature-list-item">Costo de envío regiones — <strong>${fmt(shipping.regions.price)}</strong></div>
+        <div class="feature-list-item">Pago previo por <strong>transferencia bancaria</strong></div>
+      </div>
+      <div class="inner-cta-box">
+        <div>
+          <p class="inner-cta-label">Pack recomendado para Concepción</p>
+          <p class="inner-cta-plan">{featuredPlan.title} — ${fmt(featuredPlan.price)} CLP</p>
+        </div>
+        <a href="/#precios" class="btn-primary-inner btn-primary-inner--sm">Ver todos los paquetes</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--light">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="inner-section-title">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">¿Hacen envíos a Concepción y ciudades cercanas?</summary>
+          <p class="faq-a">Sí. Enviamos a toda la Región del Biobío vía Chilexpress. El tiempo estimado es de {shipping.regions.time} desde confirmado el pago. Costo: ${fmt(shipping.regions.price)}.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Necesito técnico para instalarlo en mi local?</summary>
+          <p class="faq-a">No. El disco duro viene listo para conectar. Solo necesitas enchufarlo a tu TV o PC por USB y tienes karaoke funcionando en minutos.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Tienen canciones de artistas chilenos?</summary>
+          <p class="faq-a">Sí. El catálogo incluye cueca, tonada y toda la música chilena clásica y contemporánea, además del catálogo latino e internacional.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</InnerLayout>
+
+<style>
+  .btn-primary-inner--sm { font-size: 14px !important; padding: 11px 22px !important; }
+</style>

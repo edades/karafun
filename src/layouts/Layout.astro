@@ -1,0 +1,226 @@
+---
+import site from '../data/site.json';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "KaraFun Chile — Sistema de Karaoke Profesional | Distribuidor Oficial",
+  description = `Distribuidor oficial KaraFun en Chile. Más de ${site.stats.active_clients} clientes activos. Sistema de karaoke profesional con ${site.stats.videos} videos musicales y ${site.stats.mp3_tracks} temas MP3. Envíos a todo Chile en 24 horas.`
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="karaoke Chile, KaraFun Chile, sistema karaoke profesional, disco duro karaoke, karaoke para pub, karaoke restaurante, karaoke bar Chile, karaoke Santiago, proveedor karaoke autorizado, karaoke profesional Chile" />
+    <meta name="author" content="KaraFun Chile" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://karafun.cl/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://karafun.cl/images/logo.png" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content="KaraFun Chile" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="canonical" href="https://karafun.cl/" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Fonts: Outfit (display) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "KaraFun Chile",
+        "description": `Distribuidor oficial KaraFun en Chile. Sistema de karaoke profesional con más de ${site.stats.videos} videos musicales.`,
+        "url": site.seo.site_url,
+        "telephone": site.contact.whatsapp_raw,
+        "email": site.contact.email,
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CL",
+          "addressLocality": "Santiago"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Chile"
+        },
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 09:00-18:00"
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* ─── Design Tokens ─────────────────────────────────────── */
+  :root {
+    --deep:          #07011A;
+    --dark:          #0E0628;
+    --card-dark:     #170940;
+    --purple:        #7314BD;
+    --purple-mid:    #9B2EE8;
+    --purple-light:  #B660F5;
+    --pink:          #D5167A;
+    --pink-light:    #F03D96;
+    --accent:        #C471ED;
+    --white:         #FFFFFF;
+    --light:         #F7F2FF;
+    --light-card:    #FFFFFF;
+    --text-primary:  #EDE8FF;
+    --text-muted:    #8B7CAD;
+    --text-dark:     #1A0A35;
+    --border:        rgba(180, 68, 240, 0.18);
+    --border-strong: rgba(180, 68, 240, 0.45);
+    --shadow-purple: 0 8px 32px rgba(115, 20, 189, 0.35);
+    --shadow-glow:   0 0 60px rgba(196, 113, 237, 0.4);
+    --radius-sm:     10px;
+    --radius-md:     16px;
+    --radius-lg:     24px;
+    --radius-xl:     32px;
+    --font-display:  'Outfit', sans-serif;
+    --font-body:     'Inter', sans-serif;
+    --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* ─── Reset ──────────────────────────────────────────────── */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--deep);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  /* ─── Utilities ──────────────────────────────────────────── */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 80px);
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(196, 113, 237, 0.1);
+    border: 1px solid rgba(196, 113, 237, 0.25);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title--dark {
+    color: var(--text-dark);
+  }
+
+  .section-subtitle {
+    font-size: clamp(16px, 1.5vw, 18px);
+    color: var(--text-muted);
+    max-width: 540px;
+    line-height: 1.7;
+  }
+
+  .section-subtitle--dark {
+    color: #6B5A8A;
+  }
+
+  /* ─── Scroll Reveal ──────────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── Scrollbar ──────────────────────────────────────────── */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--deep);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--purple);
+    border-radius: 3px;
+  }
+
+  /* ─── Selection ──────────────────────────────────────────── */
+  ::selection {
+    background: var(--purple);
+    color: var(--white);
+  }
+</style>

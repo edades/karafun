@@ -1,0 +1,101 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import plans from '../../data/plans.json';
+import site from '../../data/site.json';
+
+const featuredPlan = plans.find(p => p.featured) || plans[1];
+const { stats } = site;
+---
+
+<InnerLayout
+  title="Sistema de Karaoke Profesional en Chile | KaraFun Sin Internet"
+  description={`El sistema de karaoke profesional más completo de Chile. Sin internet, sin YouTube, sin suscripciones. ${stats.videos} videos HD y ${stats.mp3_tracks} temas Mp3. Distribuidor oficial KaraFun. Envío a todo Chile.`}
+  breadcrumb="Sistema Karaoke Profesional"
+  h1="El sistema de karaoke profesional más completo de Chile"
+  subtitle="KaraFun es el estándar de karaoke profesional en más de 50 países. Ahora disponible en Chile con soporte local, actualización continua y envío en 24 horas."
+  whatsappMsg="Hola! me interesa un sistema de karaoke profesional KaraFun"
+>
+
+  <section class="inner-section inner-section--light">
+    <div class="container">
+      <h2 class="inner-section-title">Por qué KaraFun es el sistema más profesional</h2>
+      <p class="inner-section-desc">
+        Mientras otras soluciones dependen de YouTube o de internet, KaraFun ofrece
+        un catálogo 100% offline, producido en estudio, con audio de alta fidelidad
+        y video en alta definición. Es el sistema que usan más de {stats.active_clients} clientes
+        en Chile.
+      </p>
+      <div class="benefits-grid">
+        {[
+          "100% offline — sin internet, sin streaming, sin cortes",
+          "Audio producido en estudio, no grabaciones de YouTube",
+          "Video en alta definición con letra sincronizada integrada",
+          "Control de tonalidad en tiempo real para el cantante",
+          "Cola de canciones gestionable desde cualquier pantalla",
+          "Sin mensualidades — pago único por el pack"
+        ].map(text => (
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span>{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--dark">
+    <div class="container">
+      <h2 class="inner-section-title inner-section-title--light">Comparativa con otras soluciones</h2>
+      <p class="inner-section-desc inner-section-desc--light">
+        No todos los sistemas de karaoke son iguales. Aquí te mostramos por qué KaraFun
+        es la opción profesional:
+      </p>
+      <div class="feature-list">
+        <div class="feature-list-item">Sin internet — <strong>funciona siempre</strong></div>
+        <div class="feature-list-item">Sin anuncios — <strong>experiencia limpia</strong></div>
+        <div class="feature-list-item">Sin suscripción mensual — <strong>pago único</strong></div>
+        <div class="feature-list-item">Audio de estudio — <strong>no YouTube</strong></div>
+        <div class="feature-list-item">{stats.videos} videos — <strong>el catálogo más grande</strong></div>
+        <div class="feature-list-item">Soporte en Chile — <strong>asistencia local</strong></div>
+      </div>
+      <div class="inner-cta-box">
+        <div>
+          <p class="inner-cta-label">El pack más solicitado</p>
+          <p class="inner-cta-plan">{featuredPlan.title} — ${featuredPlan.price.toLocaleString('es-CL')} CLP</p>
+        </div>
+        <a href="/#precios" class="btn-primary-inner btn-primary-inner--sm">Ver todos los paquetes</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--light">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="inner-section-title">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">¿Por qué KaraFun es mejor que usar YouTube?</summary>
+          <p class="faq-a">YouTube tiene publicidad, requiere internet, las versiones karaoke no son oficiales y la calidad de audio es variable. KaraFun usa grabaciones de estudio, sin publicidad, sin internet y con audio profesional.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Necesito pagar mensualmente?</summary>
+          <p class="faq-a">No. Es un pago único. Compras el pack que elijas y el contenido es tuyo. La actualización bimestral de temas tiene un costo adicional opcional.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿En qué se diferencia del karaoke por streaming?</summary>
+          <p class="faq-a">El streaming depende completamente de internet. Si hay problemas de conexión en tu local, el karaoke se corta. Con KaraFun offline, el show nunca se interrumpe.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Con qué equipos es compatible?</summary>
+          <p class="faq-a">Con cualquier dispositivo que tenga puerto USB: PC, notebook, smart TV, proyector. También compatible con mixers de audio y software DJ profesional.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</InnerLayout>
+
+<style>
+  .btn-primary-inner--sm { font-size: 14px !important; padding: 11px 22px !important; }
+</style>

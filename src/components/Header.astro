@@ -1,24 +1,285 @@
 ---
-
+import site from '../data/site.json';
 ---
-<header>
-    <a>
-        <img src="images/logo.png" alt="logo" width="120" />
+<header id="site-header">
+  <div class="header-inner container">
+
+    <!-- Logo -->
+    <a href="#inicio" class="header-logo" aria-label="KaraFun Chile — Inicio">
+      <img src="/images/logo.png" alt="KaraFun Chile" width="110" height="36" />
     </a>
-    <!-- <nav>
-        <ol>
-            <li>Link 1</li>
-        </ol>
-    </nav> -->
+
+    <!-- Desktop Nav -->
+    <nav class="header-nav" aria-label="Navegación principal">
+      <a href="#caracteristicas" class="nav-link">Características</a>
+      <a href="#precios" class="nav-link">Precios</a>
+      <a href="#tutoriales" class="nav-link">Tutoriales</a>
+      <a href="#contacto" class="nav-link">Contacto</a>
+    </nav>
+
+    <!-- CTA -->
+    <a
+      href={`https://wa.me/${site.contact.whatsapp_raw}?text=${encodeURIComponent(site.contact.whatsapp_default_msg)}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="header-cta"
+      id="header-whatsapp-btn"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Comprar ahora
+    </a>
+
+    <!-- Mobile Toggle -->
+    <button class="header-hamburger" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú móvil">
+    <nav class="mobile-nav">
+      <a href="#caracteristicas" class="mobile-link">Características</a>
+      <a href="#precios" class="mobile-link">Precios</a>
+      <a href="#tutoriales" class="mobile-link">Tutoriales</a>
+      <a href="#contacto" class="mobile-link">Contacto</a>
+      <a
+        href={`https://wa.me/${site.contact.whatsapp_raw}?text=${encodeURIComponent(site.contact.whatsapp_default_msg)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-cta"
+      >
+        Comprar ahora
+      </a>
+    </nav>
+  </div>
 </header>
 
-<style>
-    header {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        padding: 0 20%;
-        color: white;
-        justify-content: start !important;
+<script>
+  const header = document.getElementById('site-header') as HTMLElement;
+  const hamburgerBtn = document.getElementById('hamburger-btn') as HTMLButtonElement;
+  const mobileMenu = document.getElementById('mobile-menu') as HTMLElement;
+  const mobileLinks = document.querySelectorAll('.mobile-link, .mobile-cta');
+
+  // Scroll detection
+  const onScroll = () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Hamburger toggle
+  const toggleMenu = (open: boolean) => {
+    hamburgerBtn.classList.toggle('is-open', open);
+    mobileMenu.classList.toggle('is-open', open);
+    hamburgerBtn.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.contains('is-open');
+    toggleMenu(!isOpen);
+  });
+
+  // Close on link click
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => toggleMenu(false));
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!header.contains(e.target as Node) && mobileMenu.classList.contains('is-open')) {
+      toggleMenu(false);
     }
+  });
+</script>
+
+<style>
+  #site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  #site-header.scrolled {
+    background: rgba(7, 1, 26, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-color: var(--border);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    gap: 24px;
+  }
+
+  .header-logo img {
+    width: 110px;
+    height: auto;
+    transition: opacity 0.2s;
+  }
+  .header-logo:hover img {
+    opacity: 0.85;
+  }
+
+  /* Desktop nav */
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(237, 232, 255, 0.7);
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: color 0.2s, background 0.2s;
+    letter-spacing: 0.01em;
+  }
+  .nav-link:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  /* CTA */
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    padding: 9px 20px;
+    border-radius: 100px;
+    transition: opacity 0.2s, box-shadow 0.3s, transform 0.2s var(--ease-spring);
+    white-space: nowrap;
+    box-shadow: 0 0 0 0 rgba(115, 20, 189, 0);
+  }
+  .header-cta:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(115, 20, 189, 0.5);
+  }
+
+  /* Hamburger */
+  .header-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .header-hamburger span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: transform 0.3s var(--ease-out), opacity 0.3s;
+    transform-origin: center;
+  }
+
+  .header-hamburger.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .header-hamburger.is-open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .header-hamburger.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(7, 1, 26, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 24px clamp(20px, 5vw, 40px) 32px;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+    z-index: 99;
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(237, 232, 255, 0.75);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: color 0.2s;
+  }
+  .mobile-link:hover {
+    color: var(--white);
+  }
+
+  .mobile-cta {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    padding: 14px;
+    border-radius: var(--radius-md);
+    margin-top: 16px;
+    transition: opacity 0.2s;
+  }
+  .mobile-cta:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .header-nav,
+    .header-cta {
+      display: none;
+    }
+    .header-hamburger {
+      display: flex;
+    }
+  }
 </style>

@@ -1,0 +1,256 @@
+---
+import PriceCard from './PriceCard.astro';
+import plans from '../data/plans.json';
+import site from '../data/site.json';
+
+const { shipping } = site;
+const fmt = (n: number) => `$ ${n.toLocaleString('es-CL')}`;
+---
+
+<section id="precios" class="pricing">
+
+  <!-- Background orbs -->
+  <div class="pricing-orb pricing-orb--1" aria-hidden="true"></div>
+  <div class="pricing-orb pricing-orb--2" aria-hidden="true"></div>
+
+  <div class="container">
+
+    <div class="pricing-header">
+      <span class="section-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+        </svg>
+        Paquetes
+      </span>
+      <h2 class="section-title pricing-title">
+        Elige tu pack ideal
+      </h2>
+      <p class="section-subtitle pricing-subtitle">
+        Todos los packs incluyen disco duro externo preconfigurado, listado completo
+        de temas y soporte técnico en Chile.
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      {plans.map((plan) => (
+        <div class="pricing-card-wrap reveal">
+          <PriceCard
+            title={plan.title}
+            storage={plan.storage}
+            description={plan.description}
+            featured={plan.featured}
+            badge={plan.badge}
+            price={plan.price}
+            features={plan.features}
+          />
+        </div>
+      ))}
+    </div>
+
+    <!-- Shipping info -->
+    <div class="pricing-shipping reveal">
+      <div class="shipping-header">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+        Envíos a todo Chile — Entrega máxima 24 horas tras el pago
+      </div>
+      <div class="shipping-rates">
+        <div class="rate-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>{shipping.express.label}</span>
+          <strong>{fmt(shipping.express.price)} · {shipping.express.time}</strong>
+        </div>
+        <div class="rate-divider" aria-hidden="true"></div>
+        <div class="rate-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>{shipping.regions.label}</span>
+          <strong>{fmt(shipping.regions.price)}</strong>
+        </div>
+        <div class="rate-divider" aria-hidden="true"></div>
+        <div class="rate-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>{shipping.extreme.label}</span>
+          <strong>{fmt(shipping.extreme.price)}</strong>
+        </div>
+      </div>
+      <p class="shipping-provider">Envíos vía <strong>Chilexpress</strong></p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .pricing {
+    background: var(--deep);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+  .pricing-orb--1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(115, 20, 189, 0.2) 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+  }
+  .pricing-orb--2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(213, 22, 122, 0.15) 0%, transparent 70%);
+    bottom: 0;
+    right: -80px;
+  }
+
+  .pricing-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pricing-title {
+    color: var(--white);
+  }
+
+  .pricing-subtitle {
+    text-align: center;
+  }
+
+  /* ─── Grid ───────────────────────────────────────── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Featured card gets extra top margin to accommodate badge */
+  .pricing-card-wrap {
+    padding-top: 18px;
+  }
+
+  /* Stagger delays */
+  .pricing-card-wrap:nth-child(1) { transition-delay: 0ms; }
+  .pricing-card-wrap:nth-child(2) { transition-delay: 80ms; }
+  .pricing-card-wrap:nth-child(3) { transition-delay: 160ms; }
+  .pricing-card-wrap:nth-child(4) { transition-delay: 240ms; }
+  .pricing-card-wrap:nth-child(5) { transition-delay: 320ms; }
+
+  /* ─── Shipping ───────────────────────────────────── */
+  .pricing-shipping {
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .shipping-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .shipping-header svg {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .shipping-rates {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .rate-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(237, 232, 255, 0.65);
+  }
+
+  .rate-item svg {
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .rate-item strong {
+    color: var(--accent);
+    font-weight: 700;
+    font-family: var(--font-display);
+    margin-left: 4px;
+  }
+
+  .rate-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  .shipping-provider {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .shipping-provider strong {
+    color: rgba(237, 232, 255, 0.55);
+  }
+
+  /* ─── Responsive ─────────────────────────────────── */
+  @media (max-width: 1200px) {
+    .pricing-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 800px) {
+    .pricing-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+    .shipping-rates {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .rate-divider {
+      display: none;
+    }
+    .pricing-shipping {
+      padding: 20px;
+    }
+  }
+</style>

@@ -1,0 +1,105 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import plans from '../../data/plans.json';
+import site from '../../data/site.json';
+
+const featuredPlan = plans.find(p => p.featured) || plans[1];
+const { stats } = site;
+---
+
+<InnerLayout
+  title="Karaoke para Pub en Chile | Sistema Profesional KaraFun"
+  description={`Sistema de karaoke profesional para pubs en Chile. Sin internet, sin YouTube, sin interrupciones. Más de ${stats.videos} videos musicales HD. Proveedor oficial KaraFun. Envío en 24 horas.`}
+  breadcrumb="Karaoke para Pub"
+  h1="Karaoke profesional para pubs en Chile"
+  subtitle="Miles de pubs en Chile usan KaraFun para ofrecer una experiencia de karaoke profesional, sin depender de internet ni de plataformas externas. Somos el proveedor oficial en el país."
+  whatsappMsg="Hola! me interesa karaoke profesional para mi pub"
+>
+
+  <!-- Por qué para pubs -->
+  <section class="inner-section inner-section--light">
+    <div class="container">
+      <h2 class="inner-section-title">Por qué los pubs eligen KaraFun</h2>
+      <p class="inner-section-desc">
+        Un pub necesita un sistema que funcione toda la noche sin fallas, sin anuncios
+        y con una biblioteca realmente amplia. KaraFun cumple todos esos requisitos.
+      </p>
+      <div class="benefits-grid">
+        {[
+          "Sin depender de internet — funciona offline desde el disco duro",
+          "Audio limpio, sin marcas de agua ni logos de YouTube",
+          "Actualización cada dos meses con los últimos éxitos",
+          "Compatible con cualquier sistema de sonido profesional",
+          "Entrega en Santiago en menos de 24 horas",
+          "Soporte técnico directo en Chile"
+        ].map(text => (
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span>{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Qué incluye -->
+  <section class="inner-section inner-section--dark">
+    <div class="container">
+      <h2 class="inner-section-title inner-section-title--light">Lo que incluye cada pack</h2>
+      <p class="inner-section-desc inner-section-desc--light">
+        Todos los paquetes llegan listos para usar: disco duro externo preconfigurado con
+        toda la música cargada, más el listado completo de temas en Excel y PDF.
+      </p>
+      <div class="feature-list">
+        <div class="feature-list-item"><strong>{stats.videos}</strong> videos musicales HD sin publicidad</div>
+        <div class="feature-list-item"><strong>{stats.mp3_tracks}</strong> temas Mp3 por género y año</div>
+        <div class="feature-list-item"><strong>500+ GB</strong> de música DJ Carrete incluida</div>
+        <div class="feature-list-item">Actualización <strong>cada 2 meses</strong> con temas nuevos</div>
+        <div class="feature-list-item">Compatible con <strong>cualquier TV, PC o sistema de audio</strong></div>
+        <div class="feature-list-item"><strong>Soporte técnico</strong> directo en Chile</div>
+      </div>
+      <div class="inner-cta-box">
+        <div>
+          <p class="inner-cta-label">Pack recomendado para pubs</p>
+          <p class="inner-cta-plan">{featuredPlan.title} — ${featuredPlan.price.toLocaleString('es-CL')} CLP</p>
+        </div>
+        <a href="/#precios" class="btn-primary-inner btn-primary-inner--sm">Ver todos los paquetes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="inner-section inner-section--light">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="inner-section-title">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">¿Funciona sin conexión a internet?</summary>
+          <p class="faq-a">Sí. Todo el contenido viene preinstalado en el disco duro externo. No necesitas internet para reproducir ni una sola canción.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Puedo conectarlo a mi sistema de sonido profesional?</summary>
+          <p class="faq-a">KaraFun es compatible con cualquier sistema de reproducción de video: TV, proyector, PC, mixer de audio o software DJ profesional.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Cómo recibo las actualizaciones de temas?</summary>
+          <p class="faq-a">Cada dos meses agregamos nuevos temas al catálogo. Te avisamos cuando hay actualización disponible para que puedas actualizar tu disco.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Hacen envíos fuera de Santiago?</summary>
+          <p class="faq-a">Sí, enviamos a todo Chile vía Chilexpress. Regiones: $7.000 · Zonas extremas: $9.500 · Entrega en 24 horas hábiles tras el pago.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</InnerLayout>
+
+<style>
+  .btn-primary-inner--sm {
+    font-size: 14px !important;
+    padding: 11px 22px !important;
+  }
+</style>

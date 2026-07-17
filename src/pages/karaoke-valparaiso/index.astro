@@ -1,0 +1,97 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import plans from '../../data/plans.json';
+import site from '../../data/site.json';
+
+const featuredPlan = plans.find(p => p.featured) || plans[1];
+const { shipping } = site;
+const fmt = (n: number) => n.toLocaleString('es-CL');
+---
+
+<InnerLayout
+  title="Karaoke en Valparaíso y Viña del Mar | KaraFun — Envío Express"
+  description={`Sistema de karaoke profesional para pubs, restaurantes y eventos en Valparaíso y Viña del Mar. Envío Chilexpress en ${shipping.regions.time}. Distribuidor oficial KaraFun en Chile.`}
+  breadcrumb="Karaoke Valparaíso"
+  h1="Karaoke profesional en Valparaíso y Viña del Mar"
+  subtitle="El sistema de karaoke más completo de Chile llega a la V Región. Pubs, restaurantes, bares y empresas de eventos en Valparaíso y Viña del Mar ya usan KaraFun."
+  whatsappMsg="Hola! estoy en Valparaíso/Viña del Mar y me interesa karaoke KaraFun"
+>
+
+  <section class="inner-section inner-section--light">
+    <div class="container">
+      <h2 class="inner-section-title">KaraFun en la V Región</h2>
+      <p class="inner-section-desc">
+        Valparaíso y Viña del Mar tienen una de las escenas nocturnas más activas de Chile.
+        Desde pubs en el cerro hasta restaurantes frente al mar, KaraFun es el sistema
+        elegido por los locales que buscan diferenciarse con entretenimiento de calidad.
+      </p>
+      <div class="benefits-grid">
+        {[
+          `Envío vía Chilexpress a Valparaíso y Viña en ${shipping.regions.time}`,
+          "Funciona sin internet — ideal en locales con WiFi inestable",
+          "118.500+ videos musicales HD sin publicidad",
+          "Música para la noche porteña: salsa, cumbia, rock y electrónica",
+          "Compatible con TV, proyector y cualquier sistema de audio",
+          "Soporte técnico directo en Chile vía WhatsApp"
+        ].map(text => (
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span>{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--dark">
+    <div class="container">
+      <h2 class="inner-section-title inner-section-title--light">Envíos a la V Región</h2>
+      <p class="inner-section-desc inner-section-desc--light">
+        Despacho Chilexpress a cualquier dirección en Valparaíso, Viña del Mar, Quilpué,
+        Villa Alemana, Con-Con y ciudades de la V Región. Tiempos de entrega estimados:
+      </p>
+      <div class="feature-list">
+        <div class="feature-list-item">Valparaíso — <strong>{shipping.regions.time}</strong></div>
+        <div class="feature-list-item">Viña del Mar — <strong>{shipping.regions.time}</strong></div>
+        <div class="feature-list-item">Quilpué / Villa Alemana — <strong>24–48 horas</strong></div>
+        <div class="feature-list-item">Con-Con / Concón — <strong>{shipping.regions.time}</strong></div>
+        <div class="feature-list-item">Costo de envío regiones — <strong>${fmt(shipping.regions.price)}</strong></div>
+        <div class="feature-list-item">Pago previo por <strong>transferencia bancaria</strong></div>
+      </div>
+      <div class="inner-cta-box">
+        <div>
+          <p class="inner-cta-label">Pack recomendado para la V Región</p>
+          <p class="inner-cta-plan">{featuredPlan.title} — ${fmt(featuredPlan.price)} CLP</p>
+        </div>
+        <a href="/#precios" class="btn-primary-inner btn-primary-inner--sm">Ver todos los paquetes</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--light">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="inner-section-title">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">¿Cuánto demora el envío a Valparaíso o Viña?</summary>
+          <p class="faq-a">Enviamos vía Chilexpress. El tiempo estimado es de {shipping.regions.time} desde que confirmamos el pago. El costo de envío a regiones es de ${fmt(shipping.regions.price)}.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Funciona en locales sin WiFi estable?</summary>
+          <p class="faq-a">Sí. KaraFun funciona completamente offline desde el disco duro externo. No necesitas WiFi para reproducir ningún contenido.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Qué pasa si tengo problemas técnicos en Valparaíso?</summary>
+          <p class="faq-a">Ofrecemos soporte técnico remoto vía WhatsApp desde Santiago. La gran mayoría de consultas se resuelven en minutos por videollamada.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</InnerLayout>
+
+<style>
+  .btn-primary-inner--sm { font-size: 14px !important; padding: 11px 22px !important; }
+</style>

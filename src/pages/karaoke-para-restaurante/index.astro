@@ -1,0 +1,106 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import plans from '../../data/plans.json';
+import site from '../../data/site.json';
+
+const featuredPlan = plans.find(p => p.featured) || plans[1];
+const { stats } = site;
+---
+
+<InnerLayout
+  title="Karaoke para Restaurante en Chile | KaraFun — Proveedor Oficial"
+  description={`Implementa karaoke profesional en tu restaurante. Sin internet, sin anuncios, con ${stats.videos} videos musicales. KaraFun Chile — distribuidor oficial. Asesoría gratuita y envío en 24 horas.`}
+  breadcrumb="Karaoke para Restaurante"
+  h1="Sistema de karaoke para restaurantes en Chile"
+  subtitle="El complemento perfecto para noches especiales, cumpleaños y eventos privados en tu restaurante. Activación inmediata, sin instalaciones complejas, sin mensualidades."
+  whatsappMsg="Hola! me interesa karaoke profesional para mi restaurante"
+>
+
+  <!-- Beneficios restaurante -->
+  <section class="inner-section inner-section--light">
+    <div class="container">
+      <h2 class="inner-section-title">Karaoke que transforma la experiencia en tu restaurante</h2>
+      <p class="inner-section-desc">
+        Diferencia tu restaurante ofreciendo noches de karaoke sin complicaciones técnicas.
+        KaraFun es el sistema elegido por cientos de restaurantes en Chile por su facilidad
+        de uso y la calidad de su catálogo.
+      </p>
+      <div class="benefits-grid">
+        {[
+          "Sin mensualidades ni suscripciones — pago único",
+          `Catálogo de ${stats.videos} videos para todos los gustos de tus clientes`,
+          "Listo para usar desde el primer día, sin técnicos externos",
+          "Funciona en tu televisor o proyector existente vía USB",
+          "Géneros para toda la familia: salsa, cumbia, rock, pop, cueca y más",
+          "Listado imprimible para repartir entre tus clientes"
+        ].map(text => (
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span>{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo -->
+  <section class="inner-section inner-section--dark">
+    <div class="container">
+      <h2 class="inner-section-title inner-section-title--light">Un catálogo para todos tus clientes</h2>
+      <p class="inner-section-desc inner-section-desc--light">
+        Con más de {stats.videos} videos musicales organizados por género, idioma y década,
+        siempre habrá algo para cada mesa. Contenido actualizado cada dos meses.
+      </p>
+      <div class="feature-list">
+        <div class="feature-list-item">Salsa, merengue y música <strong>latina</strong></div>
+        <div class="feature-list-item">Rock, pop y música <strong>en inglés</strong></div>
+        <div class="feature-list-item">Cueca, tonada y <strong>música chilena</strong></div>
+        <div class="feature-list-item">Románticas, baladas y <strong>boleros</strong></div>
+        <div class="feature-list-item">Décadas 60s, 70s, 80s, 90s, <strong>2000s y 2020s</strong></div>
+        <div class="feature-list-item">Bachata, reggaeton, <strong>electrónica</strong> y más</div>
+      </div>
+      <div class="inner-cta-box">
+        <div>
+          <p class="inner-cta-label">Recomendado para restaurantes</p>
+          <p class="inner-cta-plan">{featuredPlan.title} — ${featuredPlan.price.toLocaleString('es-CL')} CLP</p>
+        </div>
+        <a href="/#precios" class="btn-primary-inner btn-primary-inner--sm">Ver todos los paquetes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="inner-section inner-section--light">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="inner-section-title">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">¿Necesito contratar un técnico para instalarlo?</summary>
+          <p class="faq-a">No. El disco duro viene preconfigurado y listo para usar. Solo necesitas conectarlo por USB a tu TV o PC, y en minutos tienes karaoke funcionando.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Puedo imprimir el listado de canciones para mis clientes?</summary>
+          <p class="faq-a">Sí. Todos los packs incluyen el listado completo en PDF y Excel, listo para imprimir o compartir digitalmente con tus mesas.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Hay canciones en inglés y español?</summary>
+          <p class="faq-a">El catálogo incluye canciones en español, inglés, italiano, portugués y otros idiomas. Organizadas por género y por idioma para fácil navegación.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Qué pasa si un tono no le queda bien a quien canta?</summary>
+          <p class="faq-a">KaraFun permite ajustar el tono de la canción en tiempo real, desde el sistema. Es una de sus funciones más valoradas.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</InnerLayout>
+
+<style>
+  .btn-primary-inner--sm {
+    font-size: 14px !important;
+    padding: 11px 22px !important;
+  }
+</style>

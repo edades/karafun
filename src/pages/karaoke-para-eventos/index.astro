@@ -1,0 +1,100 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import plans from '../../data/plans.json';
+import site from '../../data/site.json';
+
+const featuredPlan = plans.find(p => p.featured) || plans[1];
+const { stats } = site;
+---
+
+<InnerLayout
+  title="Karaoke para Eventos y Empresas en Chile | KaraFun Profesional"
+  description="Sistema de karaoke profesional para eventos corporativos, matrimonios y fiestas en Chile. Sin internet, sin fallas, sin mensualidades. Proveedor oficial KaraFun. Envío a todo Chile en 24 horas."
+  breadcrumb="Karaoke para Eventos"
+  h1="Karaoke profesional para eventos y empresas en Chile"
+  subtitle="La solución de karaoke más confiable para matrimonios, fiestas de empresa, cumpleaños y eventos corporativos. Un sistema que funciona sin internet y nunca falla cuando más lo necesitas."
+  whatsappMsg="Hola! necesito karaoke para un evento o empresa"
+>
+
+  <section class="inner-section inner-section--light">
+    <div class="container">
+      <h2 class="inner-section-title">Por qué elegir KaraFun para tus eventos</h2>
+      <p class="inner-section-desc">
+        En eventos empresariales y sociales no hay margen para fallas técnicas. KaraFun
+        funciona de forma completamente independiente de internet, garantizando que la
+        experiencia fluya sin interrupciones.
+      </p>
+      <div class="benefits-grid">
+        {[
+          "Funciona 100% offline — sin depender de WiFi ni señal",
+          "Catálogo para todos los gustos: de los 60s a los hits actuales",
+          "Configuración en minutos por cualquier persona del equipo",
+          "Pantalla de letra sincronizada lista para cualquier TV o proyector",
+          `Más de ${stats.videos} videos HD sin publicidad ni logos`,
+          "Listado imprimible para entregar a los asistentes"
+        ].map(text => (
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span>{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--dark">
+    <div class="container">
+      <h2 class="inner-section-title inner-section-title--light">Ideal para todo tipo de evento</h2>
+      <p class="inner-section-desc inner-section-desc--light">
+        Desde una pequeña reunión de empresa hasta un matrimonio de 300 personas.
+        KaraFun se adapta a cualquier escala de evento.
+      </p>
+      <div class="feature-list">
+        <div class="feature-list-item"><strong>Matrimonios</strong> — música para todas las generaciones</div>
+        <div class="feature-list-item"><strong>Fiestas de empresa</strong> — integración de equipos</div>
+        <div class="feature-list-item"><strong>Cumpleaños</strong> — ambiente festivo garantizado</div>
+        <div class="feature-list-item"><strong>Eventos corporativos</strong> — profesional y sin fallas</div>
+        <div class="feature-list-item"><strong>Activaciones de marca</strong> — experiencia diferenciada</div>
+        <div class="feature-list-item"><strong>Fiestas privadas</strong> — fácil de operar sin técnico</div>
+      </div>
+      <div class="inner-cta-box">
+        <div>
+          <p class="inner-cta-label">Recomendado para eventos</p>
+          <p class="inner-cta-plan">{featuredPlan.title} — ${featuredPlan.price.toLocaleString('es-CL')} CLP</p>
+        </div>
+        <a href="/#precios" class="btn-primary-inner btn-primary-inner--sm">Ver todos los paquetes</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--light">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="inner-section-title">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">¿Se puede usar en un salón de eventos sin internet?</summary>
+          <p class="faq-a">Sí. Ese es precisamente uno de los puntos fuertes de KaraFun: no requiere conexión a internet. Funciona directamente desde el disco duro externo.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Cualquier persona puede operarlo durante el evento?</summary>
+          <p class="faq-a">Sí. La interfaz es muy intuitiva. Cualquier miembro de tu equipo puede buscar canciones, cambiar el tono y gestionar la cola de canciones sin conocimientos técnicos.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Puedo alquilar el sistema en vez de comprarlo?</summary>
+          <p class="faq-a">Actualmente vendemos los packs de forma permanente. Para eventos frecuentes, la compra es mucho más conveniente que el arriendo. Contáctanos para asesoría personalizada.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Tienen canciones en inglés para eventos internacionales?</summary>
+          <p class="faq-a">El catálogo incluye miles de canciones en inglés, además de español, italiano, portugués y otros idiomas. Ideal para eventos con asistentes de distintas nacionalidades.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</InnerLayout>
+
+<style>
+  .btn-primary-inner--sm { font-size: 14px !important; padding: 11px 22px !important; }
+</style>

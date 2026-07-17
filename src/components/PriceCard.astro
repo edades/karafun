@@ -1,46 +1,288 @@
 ---
-const { title, description, items, price } = Astro.props;
+import site from '../data/site.json';
+
+interface Props {
+  title: string;
+  storage: string;
+  description: string;
+  featured: boolean;
+  badge: string | null;
+  price: number;
+  features: string[];
+}
+
+const { title, storage, description, featured, badge, price, features } = Astro.props;
+
+// Format price in CLP
+const formattedPrice = price.toLocaleString('es-CL');
 ---
-<div class="section5-item">
-    <h3>{title}</h3>
-    <p class="section5-item-description">{description}</p>
-    <div>
-        <ul>
-            {items.map(item  => <li><span>{item}</span></li>)}
-        </ul>
-        <p class="section5-item-price">{price}</p>
+
+<article class={`price-card ${featured ? 'price-card--featured' : ''}`}>
+
+  {badge && (
+    <div class="price-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      </svg>
+      {badge}
     </div>
-</div>
+  )}
+
+  <div class="price-header">
+    <div class="price-storage" aria-label={`Capacidad: ${storage}`}>{storage}</div>
+    <h3 class="price-title">{title}</h3>
+    <p class="price-description">{description}</p>
+  </div>
+
+  <div class="price-amount">
+    <span class="price-currency">$</span>
+    <span class="price-value">{formattedPrice}</span>
+    <span class="price-suffix">CLP</span>
+  </div>
+
+  <ul class="price-features">
+    {features.map(feature => (
+      <li class="price-feature">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feature-check" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <span>{feature}</span>
+      </li>
+    ))}
+  </ul>
+
+  <a
+    href={`https://wa.me/${site.contact.whatsapp_raw}?text=Hola!%20quiero%20comprar%20el%20${encodeURIComponent(title)}%20de%20KaraFun`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="price-cta"
+    id={`buy-${title.toLowerCase().replace(/\s+/g, '-')}`}
+  >
+    Comprar ahora
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </a>
+</article>
 
 <style>
-    .section5-item {
-        background: white;
-        border-radius: 10px;
-        padding: 5px 25px;
-    }
-    .section5-item h3 {
-        font-size: 20px;
-        font-weight: 500;
-        margin-bottom: 0;
-    }
-    .section5-item-description {
-        margin: 3px 0;
-        font-size: 16px;
-    }
-    .section5-item ul > li
-    {
-        color: #e673af;
-        margin-bottom: 6px;
-    }
-    .section5-item ul > li > span
-    {
-        color: #000;
-        font-size: 17px;
-        font-weight: 500;
-    }
-    .section5-item-price {
-        text-align: center;
-        font-size: 28px;
-        font-weight: 600;
-    }
+  .price-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease, border-color 0.3s;
+    backdrop-filter: blur(8px);
+  }
+
+  .price-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+    border-color: rgba(115, 20, 189, 0.4);
+  }
+
+  /* ─── Featured ───────────────────────────────────── */
+  .price-card--featured {
+    background: linear-gradient(
+      160deg,
+      rgba(115, 20, 189, 0.35) 0%,
+      rgba(213, 22, 122, 0.2) 100%
+    );
+    border-color: rgba(180, 68, 240, 0.5);
+    box-shadow: 0 0 0 1px rgba(196, 113, 237, 0.2), var(--shadow-purple);
+  }
+
+  .price-card--featured:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 0 1px rgba(196, 113, 237, 0.4), 0 24px 64px rgba(115, 20, 189, 0.45);
+    border-color: rgba(180, 68, 240, 0.8);
+  }
+
+  /* ─── Badge ──────────────────────────────────────── */
+  .price-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--deep);
+    background: linear-gradient(135deg, #F59E0B, #FBBF24);
+    padding: 5px 14px;
+    border-radius: 100px;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4);
+    animation: badge-float 3s ease-in-out infinite;
+  }
+
+  @keyframes badge-float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(-3px); }
+  }
+
+  /* ─── Header ─────────────────────────────────────── */
+  .price-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .price-storage {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(196, 113, 237, 0.12);
+    border: 1px solid rgba(196, 113, 237, 0.2);
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .price-card--featured .price-storage {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: var(--white);
+  }
+
+  .price-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .price-description {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .price-card--featured .price-description {
+    color: rgba(237, 232, 255, 0.6);
+  }
+
+  /* ─── Price ──────────────────────────────────────── */
+  .price-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .price-currency {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .price-value {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .price-suffix {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  /* ─── Features ───────────────────────────────────── */
+  .price-features {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    flex: 1;
+  }
+
+  .price-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(237, 232, 255, 0.75);
+    line-height: 1.5;
+  }
+
+  .feature-check {
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .price-card--featured .feature-check {
+    color: #FBBF24;
+  }
+
+  /* ─── CTA ────────────────────────────────────────── */
+  .price-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 12px 20px;
+    border-radius: 100px;
+    white-space: nowrap;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s var(--ease-spring), box-shadow 0.3s, color 0.25s;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(237, 232, 255, 0.7);
+  }
+
+  .price-cta svg {
+    transition: transform 0.2s var(--ease-spring);
+    opacity: 0.6;
+  }
+
+  .price-cta:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.35);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .price-cta:hover svg {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+
+  /* Featured override */
+  .price-card--featured .price-cta {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .price-card--featured .price-cta:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  }
 </style>

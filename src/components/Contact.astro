@@ -1,0 +1,338 @@
+---
+import site from '../data/site.json';
+---
+
+<section id="contacto" class="contact">
+
+  <div class="contact-bg" aria-hidden="true"></div>
+
+  <div class="contact-inner container">
+
+    <!-- Left: Text + photo -->
+    <div class="contact-media reveal">
+      <div class="contact-photo-wrap">
+        <img
+          src="/images/contacto.jpg"
+          alt="Contáctanos — KaraFun Chile"
+          width="480"
+          height="400"
+          loading="lazy"
+          class="contact-photo"
+        />
+        <div class="contact-photo-overlay" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- Right: Contact options -->
+    <div class="contact-content">
+
+      <span class="section-label reveal">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.57 3.43 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l1.06-1.06a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        Contacto
+      </span>
+
+      <h2 class="section-title contact-title reveal">
+        Listo para llevar el karaoke<br />
+        <span class="contact-title--accent">al siguiente nivel</span>
+      </h2>
+
+      <p class="contact-subtitle reveal">
+        Asesórate con nosotros sin compromiso. Te ayudamos a elegir el pack
+        ideal para tu negocio o evento.
+      </p>
+
+      <!-- Contact cards -->
+      <div class="contact-cards reveal">
+
+        <a
+          href={`https://wa.me/${site.contact.whatsapp_raw}?text=${encodeURIComponent(site.contact.whatsapp_default_msg)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-card contact-card--whatsapp"
+          id="contact-whatsapp"
+        >
+          <div class="contact-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </div>
+          <div class="contact-card-body">
+            <span class="contact-card-label">WhatsApp</span>
+            <span class="contact-card-value">{site.contact.whatsapp_display}</span>
+            <span class="contact-card-action">Escríbenos ahora</span>
+          </div>
+          <svg class="contact-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+
+        <a
+          href={`mailto:${site.contact.email}`}
+          class="contact-card contact-card--email"
+          id="contact-email"
+        >
+          <div class="contact-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="contact-card-body">
+            <span class="contact-card-label">Email</span>
+            <span class="contact-card-value">{site.contact.email}</span>
+            <span class="contact-card-action">Envíanos un correo</span>
+          </div>
+          <svg class="contact-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+
+        <a
+          href={`tel:${site.contact.whatsapp_raw}`}
+          class="contact-card contact-card--phone"
+          id="contact-phone"
+        >
+          <div class="contact-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.57 3.43 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l1.06-1.06a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="contact-card-body">
+            <span class="contact-card-label">Teléfono</span>
+            <span class="contact-card-value">{site.contact.phone_display}</span>
+            <span class="contact-card-action">Llámanos directamente</span>
+          </div>
+          <svg class="contact-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background: var(--dark);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(115, 20, 189, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(115, 20, 189, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+  }
+
+  .contact-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+  }
+
+  /* ─── Media ──────────────────────────────────────── */
+  .contact-photo-wrap {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+  }
+
+  .contact-photo {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    display: block;
+    transition: transform 0.6s var(--ease-out);
+    filter: brightness(0.85) saturate(1.1);
+  }
+
+  .contact-photo-wrap:hover .contact-photo {
+    transform: scale(1.03);
+  }
+
+  .contact-photo-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-xl);
+    background: linear-gradient(
+      180deg,
+      transparent 50%,
+      rgba(14, 6, 40, 0.5) 100%
+    );
+    box-shadow: inset 0 0 0 1px rgba(196, 113, 237, 0.2);
+    pointer-events: none;
+  }
+
+  /* ─── Content ────────────────────────────────────── */
+  .contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .contact-title {
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .contact-title--accent {
+    background: linear-gradient(135deg, var(--purple-light), var(--pink-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .contact-subtitle {
+    font-size: 16px;
+    line-height: 1.75;
+    color: rgba(237, 232, 255, 0.6);
+    max-width: 420px;
+  }
+
+  /* ─── Cards ──────────────────────────────────────── */
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: background 0.25s, border-color 0.25s, transform 0.25s var(--ease-spring), box-shadow 0.25s;
+    text-decoration: none;
+  }
+
+  .contact-card:hover {
+    transform: translateX(4px);
+    border-color: var(--border-strong);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .contact-card--whatsapp:hover {
+    border-color: rgba(37, 211, 102, 0.4);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.12);
+  }
+
+  .contact-card--email:hover {
+    border-color: rgba(115, 20, 189, 0.4);
+    box-shadow: 0 4px 20px rgba(115, 20, 189, 0.12);
+  }
+
+  .contact-card--phone:hover {
+    border-color: rgba(213, 22, 122, 0.4);
+    box-shadow: 0 4px 20px rgba(213, 22, 122, 0.12);
+  }
+
+  .contact-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+
+  .contact-card:hover .contact-card-icon {
+    transform: scale(1.1);
+  }
+
+  .contact-card--whatsapp .contact-card-icon {
+    background: rgba(37, 211, 102, 0.12);
+    border: 1px solid rgba(37, 211, 102, 0.25);
+    color: #25D366;
+  }
+
+  .contact-card--email .contact-card-icon {
+    background: rgba(115, 20, 189, 0.12);
+    border: 1px solid rgba(115, 20, 189, 0.25);
+    color: var(--accent);
+  }
+
+  .contact-card--phone .contact-card-icon {
+    background: rgba(213, 22, 122, 0.12);
+    border: 1px solid rgba(213, 22, 122, 0.25);
+    color: var(--pink-light);
+  }
+
+  .contact-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+  }
+
+  .contact-card-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .contact-card-value {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .contact-card-action {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .contact-card-arrow {
+    color: var(--text-muted);
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .contact-card:hover .contact-card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--accent);
+  }
+
+  /* ─── Responsive ─────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .contact-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .contact-photo {
+      height: 320px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .contact {
+      padding: 80px 0;
+    }
+    .contact-card-value {
+      font-size: 15px;
+    }
+  }
+</style>

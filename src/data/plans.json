@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1tera",
+    "title": "Pack 1 Tera",
+    "storage": "1 TB",
+    "description": "Disco Duro Externo 1 Tera",
+    "featured": false,
+    "badge": null,
+    "price": 175900,
+    "features": [
+      "7.450 Videos Musicales HD",
+      "175 GB de Música Mp3",
+      "18.700 temas de karaoke KaraFun",
+      "Disco Duro Externo 1 TB Toshiba",
+      "Listado de temas en Excel y PDF"
+    ]
+  },
+  {
+    "id": "500gb",
+    "title": "Pack 500 GB",
+    "storage": "500 GB",
+    "description": "Disco Duro Externo 500 GB",
+    "featured": true,
+    "badge": "Más popular",
+    "price": 97900,
+    "features": [
+      "3.810 Videos Musicales HD",
+      "18.700 temas de karaoke KaraFun",
+      "75 GB de música DJ Carrete",
+      "Disco Duro Externo 500 GB",
+      "Listado de temas en Excel y PDF"
+    ]
+  },
+  {
+    "id": "320gb",
+    "title": "Pack 320 GB",
+    "storage": "320 GB",
+    "description": "Disco Duro Externo 320 GB",
+    "featured": false,
+    "badge": null,
+    "price": 83900,
+    "features": [
+      "1.610 Videos Musicales HD",
+      "18.700 temas de karaoke KaraFun",
+      "19 GB de música DJ Carrete",
+      "Disco Duro Externo 320 GB",
+      "Listado de temas en Excel y PDF"
+    ]
+  },
+  {
+    "id": "250gb",
+    "title": "Pack 250 GB",
+    "storage": "250 GB",
+    "description": "Disco Duro Externo 250 GB",
+    "featured": false,
+    "badge": null,
+    "price": 78900,
+    "features": [
+      "1.010 Videos Musicales HD",
+      "18.700 temas de karaoke KaraFun",
+      "13 GB de música DJ Carrete",
+      "Disco Duro Externo 250 GB",
+      "Listado de temas en Excel y PDF"
+    ]
+  },
+  {
+    "id": "160gb",
+    "title": "Pack 160 GB",
+    "storage": "160 GB",
+    "description": "Disco Duro Externo 160 GB",
+    "featured": false,
+    "badge": null,
+    "price": 68900,
+    "features": [
+      "1.010 Videos Musicales HD",
+      "18.700 temas de karaoke KaraFun",
+      "13 GB de música DJ Carrete",
+      "Disco Duro Externo 160 GB",
+      "Listado de temas en Excel y PDF"
+    ]
+  }
+]

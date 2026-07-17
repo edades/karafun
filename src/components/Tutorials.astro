@@ -1,0 +1,193 @@
+---
+---
+
+<section id="tutoriales" class="tutorials">
+
+  <div class="tutorials-bg" aria-hidden="true"></div>
+
+  <div class="container">
+
+    <div class="tutorials-header">
+      <span class="section-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+        </svg>
+        Tutoriales
+      </span>
+      <h2 class="section-title tutorials-title">
+        Empieza a usar KaraFun<br />
+        <span class="tutorials-title--accent">en minutos</span>
+      </h2>
+      <p class="section-subtitle tutorials-subtitle">
+        Guías paso a paso para configurar tu sistema y conectarlo a cualquier
+        pantalla o equipo de sonido.
+      </p>
+    </div>
+
+    <div class="tutorials-grid">
+
+      <div class="tutorial-card reveal">
+        <div class="tutorial-label">Tutorial 01</div>
+        <h3 class="tutorial-title">Cómo usar KaraFun</h3>
+        <p class="tutorial-desc">Introducción completa al sistema, navegación de carpetas y reproducción.</p>
+        <div class="tutorial-embed">
+          <iframe
+            src="https://www.veed.io/embed/8245d7a3-12cb-445a-aabd-b6a07ed38a46"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            title="Tutorial KaraFun — Uso del sistema"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="tutorial-card reveal">
+        <div class="tutorial-label">Tutorial 02</div>
+        <h3 class="tutorial-title">Conectar el PC a la TV</h3>
+        <p class="tutorial-desc">Aprende a proyectar KaraFun en cualquier televisor o pantalla grande.</p>
+        <div class="tutorial-embed">
+          <iframe
+            src="https://www.veed.io/embed/35bae60b-d069-4f6b-8edd-7d0035ce09fc"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            title="Tutorial — Conectar PC a TV con KaraFun"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .tutorials {
+    background: var(--light);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tutorials-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(115, 20, 189, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .tutorials-header {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tutorials-title {
+    color: var(--text-dark);
+    line-height: 1.2;
+  }
+
+  .tutorials-title--accent {
+    background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tutorials-subtitle {
+    color: #6B5A8A;
+  }
+
+  /* ─── Grid ───────────────────────────────────────── */
+  .tutorials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── Card ───────────────────────────────────────── */
+  .tutorial-card {
+    background: var(--white);
+    border: 1px solid rgba(115, 20, 189, 0.1);
+    border-radius: var(--radius-xl);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.3s var(--ease-spring), box-shadow 0.3s, border-color 0.3s;
+  }
+
+  .tutorial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(115, 20, 189, 0.12);
+    border-color: rgba(115, 20, 189, 0.25);
+  }
+
+  .tutorial-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(196, 113, 237, 0.1);
+    border: 1px solid rgba(196, 113, 237, 0.2);
+    padding: 4px 10px;
+    border-radius: 6px;
+    width: fit-content;
+  }
+
+  .tutorial-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .tutorial-desc {
+    font-size: 14px;
+    color: #6B5A8A;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ─── Embed ──────────────────────────────────────── */
+  .tutorial-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--dark);
+    margin-top: 4px;
+  }
+
+  .tutorial-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: var(--radius-md);
+  }
+
+  /* ─── Responsive ─────────────────────────────────── */
+  @media (max-width: 768px) {
+    .tutorials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

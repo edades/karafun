@@ -1,0 +1,45 @@
+{
+  "contact": {
+    "whatsapp_raw": "+56942586351",
+    "whatsapp_display": "+56 9 4258 6351",
+    "phone_display": "+56 9 4258 6351",
+    "email": "ventas@karafun.cl",
+    "city": "Santiago, Chile",
+    "whatsapp_default_msg": "Hola! estoy interesado en un producto KaraFun"
+  },
+  "shipping": {
+    "express": {
+      "label": "Express Santiago",
+      "price": 9000,
+      "time": "~1 hora",
+      "description": "Solo Región Metropolitana"
+    },
+    "regions": {
+      "label": "Regiones",
+      "price": 7000,
+      "time": "24 horas hábiles",
+      "description": "Vía Chilexpress a todo Chile"
+    },
+    "extreme": {
+      "label": "Zonas extremas",
+      "price": 9500,
+      "time": "24–72 horas hábiles",
+      "description": "Arica, Iquique, Punta Arenas y zonas extremas"
+    },
+    "free_threshold": null
+  },
+  "stats": {
+    "videos": "118.500+",
+    "mp3_tracks": "183.000+",
+    "active_clients": "12.300+",
+    "years": "10+"
+  },
+  "downloads": {
+    "xlsx": "/docs/listado.xls",
+    "pdf": "/docs/listado.pdf"
+  },
+  "seo": {
+    "site_url": "https://karafun.cl",
+    "og_image": "/images/og-image.jpg"
+  }
+}

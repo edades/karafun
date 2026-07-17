@@ -1,0 +1,100 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import plans from '../../data/plans.json';
+import site from '../../data/site.json';
+
+const featuredPlan = plans.find(p => p.featured) || plans[1];
+const { stats } = site;
+---
+
+<InnerLayout
+  title="Karaoke para DJ en Chile | Librería KaraFun Profesional"
+  description={`La librería de karaoke más completa para DJs en Chile. ${stats.videos} videos HD, ${stats.mp3_tracks} temas Mp3 organizados por BPM, género y año. Compatible con software DJ profesional. KaraFun Chile.`}
+  breadcrumb="Karaoke para DJ"
+  h1="La librería de karaoke que todo DJ profesional necesita"
+  subtitle={`Más de ${stats.mp3_tracks} temas organizados por género, BPM y año. Compatible con software DJ profesional. Sin suscripciones, sin internet, sin interrupciones en el set.`}
+  whatsappMsg="Hola! soy DJ y me interesa la librería de karaoke KaraFun"
+>
+
+  <section class="inner-section inner-section--light">
+    <div class="container">
+      <h2 class="inner-section-title">Diseñado para el trabajo del DJ</h2>
+      <p class="inner-section-desc">
+        KaraFun no es solo karaoke para locales — es una herramienta de trabajo para DJs
+        que ofrecen karaoke en sus eventos. Catálogo estructurado, audio limpio y sin
+        dependencia de plataformas online que pueden fallar en el momento menos indicado.
+      </p>
+      <div class="benefits-grid">
+        {[
+          `${stats.mp3_tracks} temas Mp3 ordenados por género, año y BPM`,
+          "Compatible con Serato, Rekordbox, Virtual DJ y otros softwares DJ",
+          "Audio sin cortes, sin publicidad, sin streaming interrumpido",
+          "Videos HD para proyectar en cualquier pantalla del evento",
+          "500+ GB de música DJ Carrete incluida en todos los packs",
+          "Actualización bimestral con los últimos lanzamientos"
+        ].map(text => (
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span>{text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--dark">
+    <div class="container">
+      <h2 class="inner-section-title inner-section-title--light">Géneros organizados para el set</h2>
+      <p class="inner-section-desc inner-section-desc--light">
+        Todo el catálogo viene pre-organizado en carpetas para que puedas navegar rápido
+        durante el show. Ideal para eventos de karaoke, matrimonios, cumpleaños y fiestas.
+      </p>
+      <div class="feature-list">
+        <div class="feature-list-item">Salsa, cumbia, merengue — <strong>música latina</strong></div>
+        <div class="feature-list-item">Pop, rock, baladas — <strong>hits internacionales</strong></div>
+        <div class="feature-list-item">Reggaeton, trap, urbano — <strong>lo más nuevo</strong></div>
+        <div class="feature-list-item">Cueca, tonada — <strong>música chilena</strong></div>
+        <div class="feature-list-item">60s, 70s, 80s, 90s — <strong>música de época</strong></div>
+        <div class="feature-list-item">Electrónica, house, disco — <strong>para animar</strong></div>
+      </div>
+      <div class="inner-cta-box">
+        <div>
+          <p class="inner-cta-label">Pack más solicitado por DJs</p>
+          <p class="inner-cta-plan">{featuredPlan.title} — ${featuredPlan.price.toLocaleString('es-CL')} CLP</p>
+        </div>
+        <a href="/#precios" class="btn-primary-inner btn-primary-inner--sm">Ver todos los paquetes</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-section inner-section--light">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="inner-section-title">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">¿Es compatible con mi software de DJ?</summary>
+          <p class="faq-a">Los archivos son Mp4 (video) y Mp3 (audio) estándar, compatibles con prácticamente cualquier software de reproducción, incluyendo Virtual DJ, Serato, Rekordbox y reproductores VLC.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Los videos tienen el texto del karaoke integrado?</summary>
+          <p class="faq-a">Sí. Todos los videos musicales llevan la letra sincronizada directamente en el video, por lo que funcionan en cualquier pantalla sin necesidad de software especial.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿Puedo usar la librería en múltiples equipos?</summary>
+          <p class="faq-a">El contenido viene en un disco duro externo. Puedes conectarlo a cualquier equipo que necesites en cada evento, sin restricciones adicionales.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">¿La música DJ Carrete tiene licencia?</summary>
+          <p class="faq-a">El contenido es para uso profesional en eventos. Consulta con nosotros por WhatsApp para detalles específicos sobre las condiciones de uso.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</InnerLayout>
+
+<style>
+  .btn-primary-inner--sm { font-size: 14px !important; padding: 11px 22px !important; }
+</style>
