@@ -39,24 +39,24 @@ const waHref = `https://wa.me/${site.contact.whatsapp_raw}?text=${encodeURICompo
 
     <div class="hero-content">
 
-      <div class="hero-badge reveal">
+      <div class="hero-badge hero-anim hero-anim--1">
         <span class="badge-dot"></span>
         Distribuidor Oficial · Únicos autorizados en Chile
       </div>
 
-      <h1 class="hero-title reveal">
+      <h1 class="hero-title hero-anim hero-anim--2">
         Cantar alegra la vida<br />
         <span class="hero-title--gradient">y sus momentos</span>
       </h1>
 
-      <p class="hero-description reveal">
+      <p class="hero-description hero-anim hero-anim--3">
         Los invitamos a ser parte de esta sana diversión musical y canto en familia.
         Este sistema KaraFun es el mismo que hace más de {site.stats.years} años vendemos a pubs,
         restaurantes, bares, DJs y empresas de eventos en todo Chile.
         <strong>Solo necesitas un computador, sin conexión a internet.</strong>
       </p>
 
-      <div class="hero-actions reveal">
+      <div class="hero-actions hero-anim hero-anim--4">
         <a href="#precios" class="btn-primary">
           Ver paquetes
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -77,21 +77,21 @@ const waHref = `https://wa.me/${site.contact.whatsapp_raw}?text=${encodeURICompo
       </div>
 
       <!-- Stats -->
-      <div class="hero-stats reveal">
+      <div class="hero-stats hero-anim hero-anim--5">
         <div class="stat">
-          <span class="stat-number" data-target={toInt(site.stats.active_clients)}>0</span>
+          <span class="stat-number" data-target={toInt(site.stats.active_clients)}>{site.stats.active_clients}</span>
           <span class="stat-suffix">+</span>
           <span class="stat-label">Clientes en Chile</span>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat">
-          <span class="stat-number" data-target={toInt(site.stats.years)}>0</span>
+          <span class="stat-number" data-target={toInt(site.stats.years)}>{site.stats.years}</span>
           <span class="stat-suffix">+</span>
           <span class="stat-label">Años de experiencia</span>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat">
-          <span class="stat-number" data-target={toInt(site.stats.karaoke_tracks)}>0</span>
+          <span class="stat-number" data-target={toInt(site.stats.karaoke_tracks)}>{site.stats.karaoke_tracks}</span>
           <span class="stat-suffix">+</span>
           <span class="stat-label">Temas de karaoke</span>
         </div>
@@ -156,15 +156,29 @@ const waHref = `https://wa.me/${site.contact.whatsapp_raw}?text=${encodeURICompo
   );
 
   document.querySelectorAll('.stat-number').forEach(el => statsObserver.observe(el));
-
-  // Hero elements stagger on load
-  const heroReveal = document.querySelectorAll('.hero .reveal');
-  heroReveal.forEach((el, i) => {
-    setTimeout(() => el.classList.add('is-visible'), 200 + i * 120);
-  });
 </script>
 
 <style>
+  /* ─── Instant CSS entrance for Hero (no JS wait) ── */
+  .hero-anim {
+    animation: hero-enter 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .hero-anim--1 { animation-delay: 0ms; }
+  .hero-anim--2 { animation-delay: 40ms; }
+  .hero-anim--3 { animation-delay: 80ms; }
+  .hero-anim--4 { animation-delay: 120ms; }
+  .hero-anim--5 { animation-delay: 160ms; }
+
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
   .hero {
     position: relative;
     min-height: 92svh;
