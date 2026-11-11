@@ -1,5 +1,6 @@
 ---
 import site from '../data/site.json';
+import plans from '../data/plans.json';
 
 export interface Props {
   title?: string;
@@ -8,8 +9,58 @@ export interface Props {
 
 const {
   title = "KaraFun Chile — Sistema de Karaoke Profesional | Distribuidor Oficial",
-  description = `Distribuidor oficial KaraFun en Chile. Más de ${site.stats.active_clients} clientes activos. Sistema de karaoke profesional con ${site.stats.videos} videos musicales y ${site.stats.mp3_tracks} temas MP3. Envíos a todo Chile en 24 horas.`
+  description = `Distribuidor oficial KaraFun en Chile. Más de ${site.stats.active_clients} clientes en todo Chile. ${site.stats.karaoke_tracks} temas de karaoke y hasta ${site.stats.videos} videos musicales. Sin internet, solo necesitas un computador. Envíos a todo Chile.`
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, site.seo.site_url).toString();
+const ogImageUrl = new URL(site.seo.og_image, site.seo.site_url).toString();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${site.seo.site_url}/#business`,
+  "name": "KaraFun Chile",
+  "slogan": site.slogan,
+  "description": `Únicos autorizados KaraFun en Chile. Más de ${site.stats.active_clients} clientes en ${site.stats.years}+ años. Sistema de karaoke profesional sin internet con ${site.stats.karaoke_tracks} temas de karaoke, videos musicales limpios y música Mp3 en disco duro externo.`,
+  "url": site.seo.site_url,
+  "image": ogImageUrl,
+  "logo": new URL("/images/logo.png", site.seo.site_url).toString(),
+  "telephone": site.contact.whatsapp_raw,
+  "email": site.contact.email,
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CL",
+    "addressLocality": "Santiago",
+    "addressRegion": "Región Metropolitana"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Chile"
+  },
+  "priceRange": "$64.900 - $174.900 CLP",
+  "openingHours": "Mo-Sa 09:00-20:00",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Packs VJ Disco Duro Externo KaraFun",
+    "itemListElement": plans.map((plan) => ({
+      "@type": "Offer",
+      "priceCurrency": "CLP",
+      "price": plan.price,
+      "availability": "https://schema.org/InStock",
+      "url": `${site.seo.site_url}/#precios`,
+      "itemOffered": {
+        "@type": "Product",
+        "name": `${plan.title} — ${plan.description}`,
+        "description": plan.features.join(" · "),
+        "image": new URL(plan.image, site.seo.site_url).toString(),
+        "brand": {
+          "@type": "Brand",
+          "name": "KaraFun"
+        }
+      }
+    }))
+  }
+};
 ---
 
 <!doctype html>
@@ -18,16 +69,19 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="keywords" content="karaoke Chile, KaraFun Chile, sistema karaoke profesional, disco duro karaoke, karaoke para pub, karaoke restaurante, karaoke bar Chile, karaoke Santiago, proveedor karaoke autorizado, karaoke profesional Chile" />
+    <meta name="keywords" content="karaoke Chile, KaraFun Chile, sistema karaoke profesional, disco duro karaoke, karaoke sin internet, pack VJ karaoke, karaoke para pub, karaoke restaurante, karaoke DJ Chile, karaoke Santiago, proveedor karaoke autorizado" />
     <meta name="author" content="KaraFun Chile" />
     <meta name="robots" content="index, follow" />
+    <meta name="geo.region" content="CL-RM" />
+    <meta name="geo.placename" content="Santiago, Chile" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://karafun.cl/" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://karafun.cl/images/logo.png" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content="KaraFun Chile — Sistema de Karaoke Profesional" />
     <meta property="og:locale" content="es_CL" />
     <meta property="og:site_name" content="KaraFun Chile" />
 
@@ -35,8 +89,9 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
-    <link rel="canonical" href="https://karafun.cl/" />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <!-- Fonts: Outfit (display) + Inter (body) -->
@@ -50,28 +105,7 @@ const {
     <title>{title}</title>
 
     <!-- JSON-LD Schema -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "KaraFun Chile",
-        "description": `Distribuidor oficial KaraFun en Chile. Sistema de karaoke profesional con más de ${site.stats.videos} videos musicales.`,
-        "url": site.seo.site_url,
-        "telephone": site.contact.whatsapp_raw,
-        "email": site.contact.email,
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "CL",
-          "addressLocality": "Santiago"
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Chile"
-        },
-        "priceRange": "$$",
-        "openingHours": "Mo-Fr 09:00-18:00"
-      }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <slot />

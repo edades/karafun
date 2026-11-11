@@ -14,8 +14,9 @@ import site from '../data/site.json';
         Todo lo que necesitas<br />en un solo sistema
       </h2>
       <p class="section-subtitle section-subtitle--dark">
-        Un sistema de karaoke profesional diseñado para entornos de alta exigencia.
-        Sin YouTube, sin anuncios, sin interrupciones.
+        Para tener toda la acción fiestera en un solo disco duro: los packs más completos
+        con música, videos y karaokes. <strong>Todo se usa sin conexión a internet</strong>
+        y solo necesitas un computador.
       </p>
     </div>
 
@@ -30,8 +31,9 @@ import site from '../data/site.json';
         <div class="feature-body">
           <h3 class="feature-title">Contenido de calidad</h3>
           <p class="feature-desc">
-            Más de {site.stats.videos} videos musicales limpios, producidos en estudio.
-            <strong>Sin publicidad, sin fuentes de YouTube</strong>, con audio de alta fidelidad.
+            {site.stats.karaoke_tracks} temas de karaoke KaraFun con sonido real y hasta
+            {site.stats.videos} videos musicales limpios. Regula el tono de tu voz y de la canción.
+            <strong>Sin publicidad, sin YouTube.</strong>
           </p>
         </div>
       </article>
@@ -73,10 +75,10 @@ import site from '../data/site.json';
           </svg>
         </div>
         <div class="feature-body">
-          <h3 class="feature-title">Compatible con todo</h3>
+          <h3 class="feature-title">Del PC a tu TV o proyector</h3>
           <p class="feature-desc">
-            Funciona en TV, PC, celular, tablet, automóvil y sistemas DJ.
-            Salida directa por USB o software de mezcla profesional.
+            Conecta tu computador a cualquier televisor, pantalla gigante, proyector,
+            equipo de sonido o software de mezcla DJ profesional.
           </p>
         </div>
       </article>
@@ -88,10 +90,10 @@ import site from '../data/site.json';
           </svg>
         </div>
         <div class="feature-body">
-          <h3 class="feature-title">Listo para usar</h3>
+          <h3 class="feature-title">Solo necesitas un computador</h3>
           <p class="feature-desc">
-            Entrega en disco duro externo configurado y listo.
-            Sin instalaciones complejas, sin suscripciones, sin depender de internet.
+            Conecta el disco duro externo a tu PC o notebook y listo.
+            <strong>No necesitas conexión a internet</strong>, ni suscripciones mensuales.
           </p>
         </div>
       </article>
@@ -106,7 +108,7 @@ import site from '../data/site.json';
           <h3 class="feature-title">Soporte en Chile</h3>
           <p class="feature-desc">
             Asesoría directa en español, soporte post-venta y actualizaciones.
-            El respaldo de más de <strong>12.300 clientes</strong> en todo el país.
+            El respaldo de más de <strong>{site.stats.active_clients} clientes</strong> en todo el país.
           </p>
         </div>
       </article>
@@ -119,21 +121,21 @@ import site from '../data/site.json';
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
         </svg>
-        <span>Más de <strong>500 GB</strong> de música Mp3</span>
+        <span>Todo se usa <strong>sin conexión a internet</strong></span>
       </div>
       <div class="strip-divider" aria-hidden="true"></div>
       <div class="strip-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z"/>
         </svg>
-        <span><strong>{site.stats.mp3_tracks.replace('+', '')}</strong> temas ordenados por carpeta</span>
+        <span><strong>{site.stats.karaoke_tracks}</strong> temas de karaoke KaraFun</span>
       </div>
       <div class="strip-divider" aria-hidden="true"></div>
       <div class="strip-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
         </svg>
-        <span>Envíos a <strong>todo Chile</strong> en 24 horas</span>
+        <span>Envíos a <strong>todo Chile</strong> en máx. {site.shipping.delivery_max}</span>
       </div>
     </div>
 

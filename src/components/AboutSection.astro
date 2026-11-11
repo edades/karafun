@@ -1,4 +1,5 @@
 ---
+import site from '../data/site.json';
 ---
 
 <section id="nosotros" class="about">
@@ -12,8 +13,8 @@
     <div class="about-media reveal">
       <div class="about-frame">
         <img
-          src="/images/section4.jpg"
-          alt="Karafun Chile — Equipo en acción"
+          src="/images/grupo-despedida.jpg"
+          alt="Grupo de amigas celebrando con karaoke KaraFun"
           width="540"
           height="480"
           loading="lazy"
@@ -47,30 +48,31 @@
       </h2>
 
       <p class="about-desc reveal">
-        Nacimos de la necesidad de contar con un sistema profesional de karaoke en Chile,
-        con sonido real y control de tonalidad en tiempo real. Este sistema lo traemos
-        directamente desde España, del fabricante, siendo los únicos autorizados para
-        vender y asesorar en negocios y eventos en el país.
+        Nacimos de la necesidad y falta de un sistema profesional de karaoke en Chile,
+        con sonido real, que además te permite regular los tonos de tu voz y de la canción
+        que estás cantando en KaraFun. Este sistema lo traemos desde España, directo del
+        fabricante, y somos los únicos autorizados en Chile para vender y asesorar en tu
+        negocio y eventos.
       </p>
 
       <p class="about-desc reveal">
-        KaraFun es el karaoke más exitoso en América Latina y Norteamérica.
-        Con más de una década de operación, hemos atendido pubs, restaurantes, bares,
-        DJs y empresas de eventos en todo Chile.
+        Cabe decir que KaraFun es el karaoke más exitoso en los países de América Latina y
+        Norteamérica. Hace más de {site.stats.years} años lo vendemos a pubs, restaurantes, bares,
+        DJs y empresas de eventos: más de <strong>{site.stats.active_clients} clientes</strong> en todo Chile.
       </p>
 
       <!-- Downloads -->
       <div class="about-downloads reveal">
-        <span class="downloads-label">Descarga el listado completo de temas</span>
+        <span class="downloads-label">Descarga el listado de karaokes KaraFun</span>
         <div class="downloads-btns">
-          <a href="/docs/listado.xls" download class="dl-btn dl-btn--excel">
+          <a href={site.downloads.xlsx} download class="dl-btn dl-btn--excel">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
             </svg>
             Descargar Excel
-            <span class="dl-format">XLSX</span>
+            <span class="dl-format">XLS</span>
           </a>
-          <a href="/docs/listado.pdf" download class="dl-btn dl-btn--pdf">
+          <a href={site.downloads.pdf} download class="dl-btn dl-btn--pdf">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
             </svg>

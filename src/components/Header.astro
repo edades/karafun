@@ -5,16 +5,17 @@ import site from '../data/site.json';
   <div class="header-inner container">
 
     <!-- Logo -->
-    <a href="#inicio" class="header-logo" aria-label="KaraFun Chile — Inicio">
+    <a href="/#inicio" class="header-logo" aria-label="KaraFun Chile — Inicio">
       <img src="/images/logo.png" alt="KaraFun Chile" width="110" height="36" />
     </a>
 
     <!-- Desktop Nav -->
     <nav class="header-nav" aria-label="Navegación principal">
-      <a href="#caracteristicas" class="nav-link">Características</a>
-      <a href="#precios" class="nav-link">Precios</a>
-      <a href="#tutoriales" class="nav-link">Tutoriales</a>
-      <a href="#contacto" class="nav-link">Contacto</a>
+      <a href="/#caracteristicas" class="nav-link">Características</a>
+      <a href="/#nosotros" class="nav-link">Nosotros</a>
+      <a href="/#precios" class="nav-link">Precios</a>
+      <a href="/#tutoriales" class="nav-link">Tutoriales</a>
+      <a href="/#contacto" class="nav-link">Contacto</a>
     </nav>
 
     <!-- CTA -->
@@ -43,10 +44,11 @@ import site from '../data/site.json';
   <!-- Mobile Drawer -->
   <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú móvil">
     <nav class="mobile-nav">
-      <a href="#caracteristicas" class="mobile-link">Características</a>
-      <a href="#precios" class="mobile-link">Precios</a>
-      <a href="#tutoriales" class="mobile-link">Tutoriales</a>
-      <a href="#contacto" class="mobile-link">Contacto</a>
+      <a href="/#caracteristicas" class="mobile-link">Características</a>
+      <a href="/#nosotros" class="mobile-link">Nosotros</a>
+      <a href="/#precios" class="mobile-link">Precios</a>
+      <a href="/#tutoriales" class="mobile-link">Tutoriales</a>
+      <a href="/#contacto" class="mobile-link">Contacto</a>
       <a
         href={`https://wa.me/${site.contact.whatsapp_raw}?text=${encodeURIComponent(site.contact.whatsapp_default_msg)}`}
         target="_blank"

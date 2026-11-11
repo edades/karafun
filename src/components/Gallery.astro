@@ -1,0 +1,99 @@
+---
+const photos = [
+  { src: '/images/grupo-amigos.jpg', alt: 'Amigos cantando karaoke KaraFun', w: 1024, h: 1012, cls: 'g-tall' },
+  { src: '/images/hero-cantando.jpg', alt: 'Grupo cantando con micrófono en karaoke', w: 900, h: 599, cls: 'g-wide' },
+  { src: '/images/letrero-karafun.jpg', alt: 'Letrero iluminado KaraFun', w: 960, h: 720, cls: '' },
+  { src: '/images/grupo-navidad.jpg', alt: 'Celebración familiar con karaoke', w: 400, h: 267, cls: '' },
+  { src: '/images/grupo-despedida.jpg', alt: 'Despedida de soltera con karaoke KaraFun', w: 1024, h: 1024, cls: 'g-wide' },
+];
+---
+
+<section id="galeria" class="gallery">
+  <div class="container">
+
+    <div class="gallery-header">
+      <span class="section-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        Momentos KaraFun
+      </span>
+      <h2 class="section-title section-title--dark gallery-title">
+        Cantar alegra la vida y sus momentos
+      </h2>
+      <p class="section-subtitle section-subtitle--dark">
+        Cumpleaños, despedidas, fiestas familiares, pubs y eventos: la diversión
+        musical que une a todos.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      {photos.map((p) => (
+        <figure class={`gallery-item reveal ${p.cls}`}>
+          <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading="lazy" />
+        </figure>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .gallery {
+    background: var(--light);
+    padding: 100px 0;
+  }
+
+  .gallery-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 16px;
+  }
+
+  .gallery-item {
+    position: relative;
+    margin: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(31, 5, 66, 0.15);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out);
+  }
+  .gallery-item:hover img {
+    transform: scale(1.06);
+  }
+
+  .g-tall { grid-row: span 2; }
+  .g-wide { grid-column: span 2; }
+
+  @media (max-width: 900px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 200px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .gallery { padding: 72px 0; }
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 240px;
+    }
+    .g-tall { grid-row: span 1; }
+    .g-wide { grid-column: span 1; }
+  }
+</style>
+

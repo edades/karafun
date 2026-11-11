@@ -9,7 +9,7 @@ const { stats } = site;
 
 <InnerLayout
   title="Karaoke para Restaurante en Chile | KaraFun — Proveedor Oficial"
-  description={`Implementa karaoke profesional en tu restaurante. Sin internet, sin anuncios, con ${stats.videos} videos musicales. KaraFun Chile — distribuidor oficial. Asesoría gratuita y envío en 24 horas.`}
+  description={`Implementa karaoke profesional en tu restaurante. Sin internet, sin anuncios, con ${stats.karaoke_tracks} temas de karaoke. KaraFun Chile — distribuidor oficial. Asesoría gratuita y envío en máx. 48 horas.`}
   breadcrumb="Karaoke para Restaurante"
   h1="Sistema de karaoke para restaurantes en Chile"
   subtitle="El complemento perfecto para noches especiales, cumpleaños y eventos privados en tu restaurante. Activación inmediata, sin instalaciones complejas, sin mensualidades."
@@ -28,9 +28,9 @@ const { stats } = site;
       <div class="benefits-grid">
         {[
           "Sin mensualidades ni suscripciones — pago único",
-          `Catálogo de ${stats.videos} videos para todos los gustos de tus clientes`,
+          `Catálogo de ${stats.karaoke_tracks} temas de karaoke para todos los gustos de tus clientes`,
           "Listo para usar desde el primer día, sin técnicos externos",
-          "Funciona en tu televisor o proyector existente vía USB",
+          "Solo necesitas un computador conectado a tu televisor o proyector",
           "Géneros para toda la familia: salsa, cumbia, rock, pop, cueca y más",
           "Listado imprimible para repartir entre tus clientes"
         ].map(text => (
@@ -50,7 +50,7 @@ const { stats } = site;
     <div class="container">
       <h2 class="inner-section-title inner-section-title--light">Un catálogo para todos tus clientes</h2>
       <p class="inner-section-desc inner-section-desc--light">
-        Con más de {stats.videos} videos musicales organizados por género, idioma y década,
+        Con {stats.karaoke_tracks} temas de karaoke organizados por género, idioma y década,
         siempre habrá algo para cada mesa. Contenido actualizado cada dos meses.
       </p>
       <div class="feature-list">
@@ -78,7 +78,7 @@ const { stats } = site;
       <div class="faq-list">
         <details class="faq-item">
           <summary class="faq-q">¿Necesito contratar un técnico para instalarlo?</summary>
-          <p class="faq-a">No. El disco duro viene preconfigurado y listo para usar. Solo necesitas conectarlo por USB a tu TV o PC, y en minutos tienes karaoke funcionando.</p>
+          <p class="faq-a">No. El disco duro viene preconfigurado y listo para usar. Solo necesitas un computador (sin conexión a internet) y conectarlo a tu TV o proyector.</p>
         </details>
         <details class="faq-item">
           <summary class="faq-q">¿Puedo imprimir el listado de canciones para mis clientes?</summary>

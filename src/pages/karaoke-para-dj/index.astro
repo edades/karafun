@@ -9,10 +9,10 @@ const { stats } = site;
 
 <InnerLayout
   title="Karaoke para DJ en Chile | Librería KaraFun Profesional"
-  description={`La librería de karaoke más completa para DJs en Chile. ${stats.videos} videos HD, ${stats.mp3_tracks} temas Mp3 organizados por BPM, género y año. Compatible con software DJ profesional. KaraFun Chile.`}
+  description={`La librería de karaoke más completa para DJs en Chile. ${stats.karaoke_tracks} temas de karaoke, hasta ${stats.videos} videos musicales y ${stats.mp3_gb} de música Mp3. Compatible con software DJ profesional. KaraFun Chile.`}
   breadcrumb="Karaoke para DJ"
   h1="La librería de karaoke que todo DJ profesional necesita"
-  subtitle={`Más de ${stats.mp3_tracks} temas organizados por género, BPM y año. Compatible con software DJ profesional. Sin suscripciones, sin internet, sin interrupciones en el set.`}
+  subtitle={`${stats.karaoke_tracks} temas de karaoke KaraFun y hasta ${stats.mp3_gb} de música Mp3. Compatible con software DJ profesional. Sin suscripciones, sin internet, sin interrupciones en el set.`}
   whatsappMsg="Hola! soy DJ y me interesa la librería de karaoke KaraFun"
 >
 
@@ -26,11 +26,11 @@ const { stats } = site;
       </p>
       <div class="benefits-grid">
         {[
-          `${stats.mp3_tracks} temas Mp3 ordenados por género, año y BPM`,
+          `Hasta ${stats.mp3_gb} de música Mp3 ordenada por carpetas`,
           "Compatible con Serato, Rekordbox, Virtual DJ y otros softwares DJ",
           "Audio sin cortes, sin publicidad, sin streaming interrumpido",
-          "Videos HD para proyectar en cualquier pantalla del evento",
-          "500+ GB de música DJ Carrete incluida en todos los packs",
+          `Hasta ${stats.videos} videos musicales limpios para proyectar en el evento`,
+          "Música DJ Carrete y karaoke KaraFun en todos los packs",
           "Actualización bimestral con los últimos lanzamientos"
         ].map(text => (
           <div class="benefit-item">

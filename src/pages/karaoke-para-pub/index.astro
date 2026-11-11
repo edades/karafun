@@ -9,7 +9,7 @@ const { stats } = site;
 
 <InnerLayout
   title="Karaoke para Pub en Chile | Sistema Profesional KaraFun"
-  description={`Sistema de karaoke profesional para pubs en Chile. Sin internet, sin YouTube, sin interrupciones. Más de ${stats.videos} videos musicales HD. Proveedor oficial KaraFun. Envío en 24 horas.`}
+  description={`Sistema de karaoke profesional para pubs en Chile. Sin internet, sin YouTube, sin interrupciones. ${stats.karaoke_tracks} temas de karaoke y hasta ${stats.videos} videos musicales. Proveedor oficial KaraFun. Envío en máx. 48 horas.`}
   breadcrumb="Karaoke para Pub"
   h1="Karaoke profesional para pubs en Chile"
   subtitle="Miles de pubs en Chile usan KaraFun para ofrecer una experiencia de karaoke profesional, sin depender de internet ni de plataformas externas. Somos el proveedor oficial en el país."
@@ -30,7 +30,7 @@ const { stats } = site;
           "Audio limpio, sin marcas de agua ni logos de YouTube",
           "Actualización cada dos meses con los últimos éxitos",
           "Compatible con cualquier sistema de sonido profesional",
-          "Entrega en Santiago en menos de 24 horas",
+          "Entrega express en Santiago en 1 hora",
           "Soporte técnico directo en Chile"
         ].map(text => (
           <div class="benefit-item">
@@ -53,11 +53,11 @@ const { stats } = site;
         toda la música cargada, más el listado completo de temas en Excel y PDF.
       </p>
       <div class="feature-list">
-        <div class="feature-list-item"><strong>{stats.videos}</strong> videos musicales HD sin publicidad</div>
-        <div class="feature-list-item"><strong>{stats.mp3_tracks}</strong> temas Mp3 por género y año</div>
-        <div class="feature-list-item"><strong>500+ GB</strong> de música DJ Carrete incluida</div>
+        <div class="feature-list-item">Hasta <strong>{stats.videos}</strong> videos musicales limpios sin publicidad</div>
+        <div class="feature-list-item"><strong>{stats.karaoke_tracks}</strong> temas de karaoke KaraFun</div>
+        <div class="feature-list-item">Hasta <strong>{stats.mp3_gb}</strong> de música Mp3 y DJ Carrete</div>
         <div class="feature-list-item">Actualización <strong>cada 2 meses</strong> con temas nuevos</div>
-        <div class="feature-list-item">Compatible con <strong>cualquier TV, PC o sistema de audio</strong></div>
+        <div class="feature-list-item">Solo necesitas un <strong>computador</strong> — sin internet</div>
         <div class="feature-list-item"><strong>Soporte técnico</strong> directo en Chile</div>
       </div>
       <div class="inner-cta-box">
@@ -89,7 +89,7 @@ const { stats } = site;
         </details>
         <details class="faq-item">
           <summary class="faq-q">¿Hacen envíos fuera de Santiago?</summary>
-          <p class="faq-a">Sí, enviamos a todo Chile vía Chilexpress. Regiones: $7.000 · Zonas extremas: $9.500 · Entrega en 24 horas hábiles tras el pago.</p>
+          <p class="faq-a">Sí, enviamos a todo Chile vía Chilexpress. Santiago: $5.000 · Regiones: $7.000 · Zonas extremas: $9.500 · Express 1 hora dentro de Santiago: $9.900. Entrega máxima 48 horas tras el pago.</p>
         </details>
       </div>
     </div>

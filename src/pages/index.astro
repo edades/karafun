@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Features from '../components/Features.astro';
 import AboutSection from '../components/AboutSection.astro';
+import Gallery from '../components/Gallery.astro';
 import Pricing from '../components/Pricing.astro';
 import Tutorials from '../components/Tutorials.astro';
 import Contact from '../components/Contact.astro';
@@ -12,14 +13,15 @@ import site from '../data/site.json';
 ---
 
 <Layout
-  title="KaraFun Chile — Sistema de Karaoke Profesional | Distribuidor Oficial"
-  description={`Distribuidor oficial KaraFun en Chile. Más de ${site.stats.active_clients} clientes activos. Sistema de karaoke profesional con ${site.stats.videos} videos musicales y ${site.stats.mp3_tracks} temas MP3. Envíos a todo Chile en 24 horas.`}
+  title="KaraFun Chile — Cantar alegra la vida | Karaoke Profesional, Distribuidor Oficial"
+  description={`Únicos autorizados KaraFun en Chile. Más de ${site.stats.active_clients} clientes en ${site.stats.years}+ años. ${site.stats.karaoke_tracks} temas de karaoke, videos musicales y música Mp3 en disco duro externo. Sin internet, solo necesitas un computador. Envíos a todo Chile en máx. ${site.shipping.delivery_max}.`}
 >
   <Header />
   <main id="main-content">
     <Hero />
     <Features />
     <AboutSection />
+    <Gallery />
     <Pricing />
     <Tutorials />
     <Contact />

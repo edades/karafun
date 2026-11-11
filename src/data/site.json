@@ -1,39 +1,48 @@
 {
   "contact": {
-    "whatsapp_raw": "+56942586351",
-    "whatsapp_display": "+56 9 4258 6351",
-    "phone_display": "+56 9 4258 6351",
+    "whatsapp_raw": "+56959773371",
+    "whatsapp_display": "+56 9 5977 3371",
+    "phone_display": "+56 9 5977 3371",
     "email": "ventas@karafun.cl",
     "city": "Santiago, Chile",
     "whatsapp_default_msg": "Hola! estoy interesado en un producto KaraFun"
   },
   "shipping": {
+    "delivery_max": "48 horas",
+    "santiago": {
+      "label": "Dentro de Santiago",
+      "price": 5000,
+      "time": "máx. 48 horas",
+      "description": "Vía Chilexpress"
+    },
     "express": {
       "label": "Express Santiago",
-      "price": 9000,
-      "time": "~1 hora",
-      "description": "Solo Región Metropolitana"
+      "price": 9900,
+      "time": "1 hora",
+      "description": "Solo dentro de Santiago"
     },
     "regions": {
       "label": "Regiones",
       "price": 7000,
-      "time": "24 horas hábiles",
+      "time": "máx. 48 horas",
       "description": "Vía Chilexpress a todo Chile"
     },
     "extreme": {
       "label": "Zonas extremas",
       "price": 9500,
-      "time": "24–72 horas hábiles",
-      "description": "Arica, Iquique, Punta Arenas y zonas extremas"
+      "time": "máx. 48 horas",
+      "description": "Vía Chilexpress — Arica, Iquique, Punta Arenas y zonas extremas"
     },
     "free_threshold": null
   },
   "stats": {
-    "videos": "118.500+",
-    "mp3_tracks": "183.000+",
-    "active_clients": "12.300+",
-    "years": "10+"
+    "videos": "7.250",
+    "karaoke_tracks": "18.600",
+    "mp3_gb": "175 GB",
+    "active_clients": "5.342",
+    "years": "12"
   },
+  "slogan": "Cantar alegra la vida y sus momentos",
   "downloads": {
     "xlsx": "/docs/listado.xls",
     "pdf": "/docs/listado.pdf"
